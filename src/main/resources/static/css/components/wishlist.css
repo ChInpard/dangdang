@@ -1,0 +1,125 @@
+.wishlist{
+    min-width: 260px;
+    max-width: 400px;
+}
+
+.wishlist
+    .title{
+        font-size: var(--font-size-5);
+        font-weight: 700;
+        line-height: 130%;
+        letter-spacing: 0.24px;
+        color: var(--color-text-1);
+    }
+
+.wishlist
+    .add{
+        font-size: var(--font-size-2);
+        color: var(--color-text-9);
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0.144px;
+        border:none;
+    }
+    
+.wishlist
+    .list
+        li{
+            display: flex;
+            height: 52px;
+            padding: var(--gap-3);
+            border-radius: var(--radius-3);
+            white-space: nowrap;
+            background-color: var(--color-base-0);
+        }
+
+.wishlist
+    .list
+        .product-image{
+            margin: auto 16px;
+        }
+
+.wishlist
+    .list
+        .text-box{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--gap-2);
+            width: 184px;
+            height: 66px;
+            margin: 0 var(--gap-4-1);
+        }
+
+.wishlist
+    .list
+        .product-name{
+            font-size: var(--font-size-4);
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: 0.192px;
+            color: var(--color-text-1);
+        }
+
+.wishlist
+    .list
+        .kcal-block{
+			font-size: var(--font-size-3);
+			color: var(--color-text-6);
+        }
+
+.wishlist
+    .list
+        .hash-tags
+            span{
+                font-size: var(--font-size-2);
+                font-weight: 700;
+                line-height: 150%;
+                letter-spacing: 0.144px;
+                color: var(--color-text-9);
+            }
+
+.wishlist
+    .list
+        .delete{
+            display: inline;
+            margin: auto 0 auto auto;
+        }
+
+
+@media (min-width: 700px){
+    .wishlist{
+        width: 400px;
+    }
+}
+
+/* ==== layout ================== */
+.wishlist{
+    margin: 60px 30px;
+}
+
+
+.wishlist
+    .add{
+        text-align: right;
+        position: relative;
+        top: -18px; 
+    }
+
+.wishlist
+    .list
+        li{
+            margin-bottom: var(--gap-3-1);
+        }
+
+
+@media (min-width: 700px){
+    .wishlist{
+        margin: 100px auto;
+    }
+    
+    .wishlist
+        .add{
+            top: -20px;
+        }
+}

@@ -1,0 +1,205 @@
+.sign_in-box{
+    padding: 0 29px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign_in-box
+    .option
+        .text:hover{
+    text-decoration: underline;
+}
+
+.sign_in-box
+    .title{
+        display: flex;
+        align-items: center;
+        width: 335px;
+        height: 132px;
+        font-weight: bold;
+        font-size: var(--font-size-7);
+        color: var(--color-text-1)
+    }
+
+.sign_in-box
+    .description{
+        display: flex;
+        align-items: center;
+        width: 335px;
+        height: 45px;
+        margin: 21px 0 11px 0;
+    }
+
+.sign_in-box
+    .description
+        span{
+            color: var(--color-text-2);
+        }
+
+.sign_in-box
+    .description
+        .warning{
+            display: flex;
+            width: inherit;
+            height: 40px;
+            color: var(--color-accent-12);
+            align-items: center;
+            justify-content: center;
+            border: 1px solid red;
+            /*background-color: var(--color-accent-15);*/
+            border-radius: var(--radius-2);
+        }
+        
+.sign_in-box
+    .description
+        .success{
+            display: flex;
+            width: inherit;
+            height: 40px;
+            color: var(--color-accent-7);
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+.sign_in-box
+    .input-form
+        .input-data
+            .icon\:pwd-show{
+                display: none;
+            }
+
+.sign_in-box
+    .form-box{
+        padding: 20px 0 0 0;
+    }
+
+.sign_in-box
+    .option{
+        display: flex;
+        flex-direction: column;
+        padding: 21px 0;
+        align-items: center;
+    }
+
+.sign_in-box
+    .option
+        input{
+            margin-bottom: 23px;
+        }
+
+.sign_in-box
+    .option
+        .password{
+            color: var(--color-text-1);
+            text-align: center;
+            margin-bottom: 21px;
+            order: -1;
+        }
+
+.sign_in-box
+    .option
+        .id-check{
+            color: var(--color-text-3);
+        }
+
+.sign_in-box
+    .option
+        .sing_up-link{
+            font-weight: bold;
+            margin-left: 45px;
+            color: var(--color-main-1)
+        }
+
+.sign_in-box
+    .social-login
+        form{
+            display: flex;
+            flex-direction: column;
+            padding: 65.5px 0 66px 0;
+        }
+
+.sign_in-box
+    .social-login
+        form
+            button{
+                border-radius: var(--radius-2);
+                margin-bottom: 20px;
+                cursor: pointer;
+            }
+
+.sign_in-box
+    .social-login
+        form
+            .google-btn{
+                border: 1px solid silver;
+                background-color: var(--color-base-0);
+            }
+
+.sign_in-box
+    .social-login
+        form
+            .naver-btn{
+                border: none;
+                background-color: #03C75A;
+            }
+
+.sign_in-box
+    .social-login
+        form
+            .kakao-btn{
+                border: none;
+                background-color: #fae300;
+            }
+
+.sign_in-box
+    .social-login
+        form
+            .naver-btn
+                .icon\:naver{
+                    color: var(--color-base-0);
+                }
+
+.sign_in-box
+    .social-login
+        form
+            .kakao-btn
+                .icon\:kakao{
+                    color: #391B1B;
+                }
+
+.sign_in-box
+    .social-login
+        form
+            span{
+                font-size: var(--font-size-4);
+                color: var(--color-text-3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+.sign_in-box
+    .social-login
+        form
+            button:last-child{
+                margin-bottom: 0px;
+            }
+            
+.sign_in-box
+    .input-data
+        .view{
+            position: absolute;
+            bottom: 0px;
+            top: 25px;
+            right: 10px;
+        }
+
+.sign_in-box
+    .social-login
+        button{
+            width: 335px;
+            height: 44px;
+        }

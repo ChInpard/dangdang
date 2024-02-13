@@ -1,0 +1,86 @@
+.login-modal{
+    background-color: #0007;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000;
+    
+    opacity: 0;
+    height: 0vh;
+    transition: opacity .5s;
+}
+
+.login-modal.show{
+    opacity: 1;
+    height: 100vh;
+}
+
+.login-modal
+    .text-box{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        color: var(--color-text-1);
+        font-size: var(--font-size-5);
+    }
+
+.login-modal
+    .frame{
+        width: 365px;
+        background-color: #fff;
+        transform: translateY(0px);
+        border-radius: 15px;
+        background-color: var(--color-background-1);
+        
+        transition: transform 500ms;
+    }
+    
+.login-modal.show
+   .frame{
+       transform: translateY(-100px);
+   }
+
+.login-modal
+    .frame
+        .form-box{
+            margin-left: 15px;
+            padding: 20px 0 0 0;
+        }
+
+.login-modal
+    .frame
+        .content{
+            padding: 10px 40px;
+            font-size: var(--font-size-5);
+            color: var(--color-text-1);
+        }
+
+.error-modal
+    .frame
+        .content{
+            height: 60px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+.login-modal
+    .frame
+        .user-id{
+            font-size: 20px;
+            color: var(--color-text-2);
+        }
+        
+.login-modal
+    .frame
+        .command{
+            text-align: center;
+            margin: 35px 0 20px 0;
+        }

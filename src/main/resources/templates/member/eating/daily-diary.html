@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout.html}"
+	>
+<head>
+    <link href="/css/components/daily-food.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/daily-graph.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/calendar.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/add-popup.css" rel="stylesheet" type="text/css">
+    <script src="/js/lib/chart.min.3.6.0.js" defer></script>
+    <script src="/js/calendar-popup.js" defer></script>
+    <script src="/js/daily-food.js" defer></script>
+    <script src="/js/calendar.js" defer></script>
+    <script src="/js/add-popup.js" defer></script>
+
+</head>
+<body>
+	<main layout:fragment="main">
+		<div th:replace="~{/member/eating/daily-graph::.health-graph}"></div>
+	    <div th:replace="~{/member/eating/calendar::.calendar-container}"></div>
+		<div th:replace="~{/member/eating/daily-food::.daily-food}"></div>
+	    <div th:replace="~{/member/eating/add-popup::.popup-container}"></div>
+    </main>
+</body>
+</html>

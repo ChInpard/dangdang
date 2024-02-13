@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout.html}">
+
+<head>
+	<title>당당 자유 게시판</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	
+	<link href="/css/components/freeBoard-list.css" rel="stylesheet" type="text/css">
+	<link href="/css/components/freeBoard-button.css" rel="stylesheet" type="text/css">
+	<link href="/css/components/freeBoard-card.css" rel="stylesheet" type="text/css">
+	<link href="/css/components/freeBoard-pager.css" rel="stylesheet" type="text/css">
+	<link href="/css/components/reviewstyle.css" rel="stylesheet" type="text/css">
+	
+</head>
+
+<body>
+
+	<main layout:fragment="main">
+
+		<div class="board-head">
+			<h1 class="font-size:4 font-weight:bold">회원님들의 건강식을 올려주세요!</h1>
+
+		</div>
+		<!-- 게시글 -->
+		<section class="card-container" th:each="m : ${list}">
+			<h1 class="d:none">게시글</h1>
+			<h1 th:text="${m.id}" class="d:none">게시글번호</h1>
+			<section class="board-card border-radius:3">
+				<h1>
+					<a class="font-size:3 font-weight:bold card-title heading-4 color:black" th:text="${m.title}"
+						th:href="@{/user/board/detail(id=${m.id}, page=${page}, pageSize=${pageSize})}">제목입니다.</a>
+				</h1>
+				<p class="card-content content-block font-size:1 font-weight:normal" th:text="${m.content}" th:onclick="|location.href='@{/user/board/detail(id=${m.id}, page=${page}, pageSize=${pageSize})}'|">내용입니다.</p>
+				<div class="name-block d:flex justify-content:center">
+					<span class=" color:black font-weight:bold" th:text="${m.userName}">잭더리퍼</span>
+				</div>
+				<div class="img-block">
+					<a href=""><img class="border-radius:4" th:src="@{/image/posts/{img}(img=${m.img})}"></a>
+				</div>
+				<div class="chat-block d:flex">
+					<img src="/image/icon/board/chat.svg"><span th:text="${commentCounts[m.id]}">0</span>
+				</div>
+				<div class="sub-block d:flex">
+					<span th:text="${#dates.format(m.regDate, 'yyyy-MM-dd')}"></span>
+					조회수<span th:text="${m.hit}"></span>
+					<!--<img src="/image/icon/board/like.svg" class="icon-size:8"><span>0</span>-->
+				</div>
+		</section>
+
+			
+			<!-- 게시글 끝 -->
+		</section>
+
+		<!-- 글쓰기 버튼 -->
+		<div class="d:flex justify-content:center ">
+			<button class="board-btn-write"
+				th:onclick="|location.href='@{/member/board/write(page=${page}, pageSize=${pageSize})}'|"
+				sec:authorize="isAuthenticated()">
+			<i class="material-symbols-outlined" >edit_square</i>
+				글쓰기
+			</button>
+		</div>
+		
+		<section class="d:flex justify-content:center ">
+		  <form action="/user/board/free-search" method="get">
+		      <fieldset class="search-bar">
+		          <input type="text" id="searchInput" name="title" placeholder="검색어를 입력하세요">
+					<button type="submit" class="search-button">
+						
+					</button>
+
+		      </fieldset>
+		  </form>
+		</section>
+		
+		<!-- 페이저 -->
+		<div th:each="m : ${ph}" class="paging-container">
+			<div class="paging">
+				<h1 class="d:none">페이저</h1>
+				<th:block th:if="${ph.showPrev}">
+					<a class="page pager-link"
+						th:href="@{/user/board/list(page=${ph.beginPage-1}, pageSize=${ph.pageSize})}">&lt;</a>
+				</th:block>
+
+				<th:block th:each="i : ${#numbers.sequence(ph.beginPage, ph.endPage)}">
+					<a class="page pager-link" th:href="@{/user/board/list(page=${i}, pageSize=${ph.pageSize})}"
+						th:text="${i}"></a>
+				</th:block>
+
+				<th:block th:if="${ph.showNext}">
+					<a class="page pager-link "
+						th:href="@{/user/board/list(page=${ph.endPage+1}, pageSize=${ph.pageSize})}">&gt;</a>
+				</th:block>
+			</div>
+
+		</div>
+		<!-- 페이저 끝 -->
+	</main> <!-- /main -->
+
+
+</body>
+
+</html>

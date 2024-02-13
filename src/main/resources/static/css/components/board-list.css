@@ -1,0 +1,42 @@
+/* btn-category 레이아웃 */
+.btn-category {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* board-head 레이아웃 */
+.board-head{
+        display: flex;
+        justify-content: center;
+
+        margin-top: 30px;
+        margin-bottom: 30px;
+        gap: 60px;
+    }
+
+/* card 레이아웃 */
+.board-section
+        .board
+            .list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+/* 글쓰기 버튼 레이아웃 */
+.btn-icon {
+    position: relative;
+    left: 140px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+/* 페이저 레이아웃 */
+.pager {
+    margin-top: 70px;
+}
+
+/* 검색창 레이아웃 */
+.search {
+    margin-top: 20px;
+}

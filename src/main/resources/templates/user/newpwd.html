@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일 인증</title>
+    <link href="/css/components/newpwd.css" rel="stylesheet" type="text/css">
+    <script src="/js/newpwd.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main">
+	    <section class="newPwd-box ph:29 d:flex flex:col align-items:center justify-content:center">
+	        <h1 class="d:flex title align-items:center font-weight:bold font-size:8 color:text-1 mb:40">새로운 비밀번호 설정</h1>
+	        <form action="" method="post" class="">
+	            <fieldset>
+	                <legend class="d:none">새로운 비밀번호 설정</legend>
+	                <div class="form-box mb:60">
+	                    <div class="input-data">
+	                        <input id="pwd" class="input-box" type="password" name="user-pwd" autocomplete="off" required />
+	                        <div class="underline"></div>
+	                        <label for="pwd">새로운 비밀번호 설정</label>
+	                    </div>
+                    	<div class="errorBox pattern-check">
+                            <span class="errorText pattern"><span class="deco icon:error">대소문자구분, 특수문자, 숫자 포함 8자이상만 가능합니다</span></span>
+                        </div>
+	                </div>
+	                <div class="form-box">
+	                    <div class="input-data">
+	                        <input id="pwd-check" class="input-box" type="password" autocomplete="off" required />
+	                        <div class="underline"></div>
+	                        <label for="pwd">비밀번호 확인</label>
+	                    </div>
+	                    <div class="errorBox">
+                            <span class="errorText check"><span class="deco icon:error">비밀번호가 일치하지 않습니다</span></span>
+                        </div>
+	                </div>
+	                <div class="select-box w:166 m:auto d:flex justify-content:space-between pt:115">
+	                    <button class="m-btn btn-choice" type="submit">수정</button>
+	                    <button class="m-btn btn-cancel" type="submit">취소</button>
+	                </div>
+	            </fieldset>
+	        </form>
+	    </section>
+    </main>
+</body>
+
+</html>

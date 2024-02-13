@@ -1,0 +1,149 @@
+.btn {
+    display: inline-block;
+    width: 100px;
+    max-width: 1000px;
+    padding: 10px 10px;
+    background-color: #3F46D6;
+    border: 2px solid #3F46D6;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: .25s;
+    border-radius:8px;
+    box-sizing: border-box;  
+}
+
+
+/* 색이 다른 버튼 */
+.btn-disable {
+    background-color: #fff;
+    color: #222;
+}
+
+/* 박스 크기 */
+.btn-size\:1 {
+    width: 60px;
+    height: 40px;
+}
+
+.btn-size\:2 {
+    width: 76px;
+    height: 28;
+}
+
+.btn-size\:3 {
+    width: 104px;
+    height: 35px;
+}
+
+.btn-size\:4 {
+    width: 105px;
+    height: 51px;
+}
+
+.btn-size\:5 {
+    width: 135px;
+    height: 35px;
+}
+
+.btn-size\:6 {
+    width: 120px;
+    height: 40px;
+}
+
+.btn-size\:7 {
+    width: 312;
+    height: 56px;
+}
+
+/* 호버 */
+.btn:focus,
+.btn:hover {
+    background-color: #fff;
+    border-color: currentColor;
+    color: #3F46D6;
+}
+.btn-disable:hover {
+    background-color: #fff;
+    border-color: currentColor;
+    color: #3F46D6;
+}
+
+/* ----------- 화살표 ----------- */
+.btn-arrow-right {
+    position: relative;
+    padding-right: 2em;
+    padding-left: 1.38rem;
+}
+
+.btn-arrow-right::after {
+    content: '\f061';
+    position: absolute;
+    top: 50%;
+    right: .83em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    transform: translateY(-50%);
+}
+
+/* 아이콘이 있는 버튼 */
+.btn-icon {
+    
+    /* font */
+    font-size: var(--font-size-2);
+    color: var(--color-base-0);
+    line-height: 28px;
+    padding-left: 5px;
+    
+    /* box */
+    background-color: var(--color-main-1);
+    background-image: url(/images/icon/write.svg);
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    width: 70px;
+    height: 28px;
+    border-radius: var(--radius-1);
+    box-sizing: border-box;
+}
+
+.btn-category {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ================셀렉트 박스 ================*/
+/* 기본설정 */
+
+.select-box {
+    -webkit-appearance: none;
+    appearance: none;
+    /* 글자 위치 */
+    padding-left: 5px;
+    width: 70px;
+    height: 30px;
+    color: black;
+    font-size: 14px;
+    background:url(/images/icon/arrow-down.svg) no-repeat right 0px center;
+    border-radius: 5px;
+}
+
+.select
+    .icon-container {
+        width: 50px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+@media (min-width: 700px) {
+    .btn-category {
+
+    }
+}

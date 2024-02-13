@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.219.132:3306/dangdang_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: dang_dang
+    password: q1w2e3r4

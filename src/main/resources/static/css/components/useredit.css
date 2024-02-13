@@ -1,0 +1,107 @@
+.userModity-box
+    .title{
+        display: flex;
+        align-items: center;
+        width: 335px;
+        height: 132px;
+        font-weight: bold;
+        font-size: var(--font-size-7);
+        color: var(--color-text-1)
+    }
+
+.userModity-box
+    .profileimg-box{
+        gap: 12px;
+        padding-bottom: 47px;
+    }
+
+.userModity-box
+    .profileimg-box
+        .img-box{
+            width: 112px;
+            height: 112px;
+            background-color: lightgray;
+            border-radius: 50%;
+        }
+
+.userModity-box
+    .profileimg-box
+        .img-box
+            img{
+                width: inherit;
+                height: inherit;
+                border-radius: inherit;
+            }
+
+.userModity-box
+    .profileimg-box
+        .img-box
+            .img-btn{
+                bottom: -35px;
+                right: 0px;
+
+                width: 36px;
+                height: 36px;
+                background-color: var(--color-base-0);
+                border-radius: 50%;
+
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgb(0 0 0 / 0.16);
+            }
+
+.userModity-box
+    input{
+        text-align: center;
+    }
+
+.userModity-box
+    .readonly{
+        position: relative;
+    }
+
+.userModity-box
+    .readonly
+        .non-edit{
+        color: var(--color-text-6);
+    }
+
+.userModity-box
+    .readonly
+        .text{
+            position: absolute;
+            top: -20px;
+            color: var(--color-base-9);
+            font-size: var(--icon-size-7);
+        }
+
+.userModity-box
+    .errorBox{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 6px;
+    }
+        
+.userModity-box
+    .deco{
+        align-items: center;
+        margin-top: auto;
+    }
+        
+.userModity-box
+    .errorText{
+        color: var(--color-accent-12);
+        font-size: var(--font-size-2);
+        margin-top: 5px;
+        margin-right: 8px;
+        display: none;
+    }
+
+.userModity-box
+    .successText{
+        justify-content: flex-end;
+        color: var(--color-accent-7);
+        font-size: var(--font-size-2);
+        margin-top: 5px;
+        margin-right: 8px;
+        display: none;
+    }

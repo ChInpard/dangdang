@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}"
+   				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이 페이지</title>
+    <link href="/css/components/findmodal.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/loginmodal.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/mypage.css" rel="stylesheet" type="text/css">
+    <script type="module" src="/js/memberindex.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main">
+	    <section class="my-page_box ph:29 d:flex flex:col align-items:center justify-content:center">
+	        <h1 class="d:flex title align-items:center font-weight:bold font-size:8 color:text-1">마이 페이지</h1>
+	        <section class="w:361 h:628 d:flex flex:col">
+	            <section class="profileimg-box d:flex flex:col align-items:center">
+	                <div class="img-box position:relative">
+	                    <img src="/image/member/default.png" th:src="@{/image/member/{img}(img=${m.userImg})}">
+	                </div>
+	                <p class="user-name font-weight:bold font-size:5 color:text-1" th:text="${m.userName}">즐거운오리</p>
+	                <p class="user-email font-size:-1 color:text-3" sec:authentication="principal.email">dang@gmail.com</p>
+	            </section>
+	            <section class="nav-menu">
+	                <ul class="d:flex flex:col gap:25 mh:3">
+	                    <li><a href="/member/useredit" class="deco icon:user-edit color:text-1"><span class="text">회원 정보 수정<span class="ml:auto icon icon:arrow-right icon-size:12"></span></span></a></li>
+	                    <li><a href="/member/eating/daily-intake" class="deco icon:heart-fill color:text-1"><span class="text">관심 상품<span class="ml:auto icon icon:arrow-right icon-size:12"></span></span></a></li>
+	                    <li><a href="" class="deco icon:alert-fill color:text-1"><span class="text">알림<span class="ml:auto icon icon:arrow-right icon-size:12"></span></span></a></li>
+	                    <li><a href="/member/write" class="deco icon:my-write color:text-1"><span class="text">내가 쓴 글<span class="ml:auto icon icon:arrow-right icon-size:12"></span></span></a></li>
+	                    <li><a href="/member/inform" class="deco icon:my-health color:text-1"><span class="text">건강정보 입력<span class="ml:auto icon icon:arrow-right icon-size:12"></span></span></a></li>
+	                    <li><a href="" class="exit deco icon:exit color:text-1"><span class="text">탈퇴하기<span class="ml:auto icon icon:arrow-right icon-size:12"></span></span></a></li>
+	                </ul>
+	            </section>
+	            <div class="sign-out mt:auto ml:auto">
+	                <form action="/user/logout" class="mr:3">
+	                    <button type="submit" class="deco icon:sign-out m-btn btn-cancel font-weight:bold">로그아웃</button>
+	                </form>
+	            </div>
+	        </section>
+	    </section>
+	    
+	    <!-- 탈퇴하기 버튼 누를떄 modal -->
+	    <section class="modal exit-modal">
+	        <div class="frame">
+	            <h1 class="title d:none">확인</h1>
+	            <div class="img-box">
+	                <img src="/image/icon/modal/exclamation.svg">
+	            </div>
+	            <div class="content text text-align: font-weight:bold">
+	                탈퇴하시면 <br>
+	                재가입이 불가능합니다 <br>
+	                정말로 탈퇴 하시겠습니까?
+	            </div>
+	            <div class="command">
+	                <button class="m-btn btn-exit btn-choice btn-size:100 cursor-pointer:pointer">탈퇴</button>
+	                <button class="m-btn btn-cancel btn-size:100 cursor-pointer:pointer">취소</button>
+	            </div>
+	            </div>
+	        </div>
+	    </section>
+	    
+	    <!-- 탈퇴 버튼 눌렀을때 modal -->
+        <section class="login-modal">
+	        <div class="frame">
+	            <h1 class="title d:none">확인</h1>
+	            <div class="text-box text-align:center">
+	                아이디와 이메일주소를 <br>
+	                다시한번 입력해주세요
+	            </div>
+	            <div class="form">
+	                <div class="form-box">
+	                    <div class="input-data">
+	                        <input id="uid" class="input-box" type="text" name="user-id" autocomplete="off" required />
+	                        <div class="underline"></div>
+	                        <label for="uid">아이디</label>
+	                    </div>  
+	                </div>
+	                <div class="form-box">
+	                    <div class="input-data">
+	                        <input id="umail" class="input-box" type="text" name="user-email" autocomplete="off" required />
+	                        <div class="underline"></div>
+	                            <label for="pwd">Email</label>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="command">
+	                <button class="m-btn btn-choice btn-ok btn-size:100 cursor-pointer:pointer">확인</button>
+	            </div>
+	            </div>
+	        </div>
+	    </section>
+	</main>
+</body>
+
+</html>

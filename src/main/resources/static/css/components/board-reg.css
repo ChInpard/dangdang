@@ -1,0 +1,36 @@
+.board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.input-title {
+    width: 335px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px;
+}
+
+.input-content {
+    width: 335px;
+    height: 775px;
+    border-radius: 10px;
+    border: 1px;
+}
+
+.input-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (min-width:700px) {
+    
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <link href="/CSS/components/indexstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<main layout:fragment="main">
+         
+
+      <section class="banner-container" id="banner">
+         <h1 class="d:none">배너</h1>
+            <div class="banner-wrapper">
+               <ul class="banner-rolling">
+                  <li class="banner_item" style="background-color: #3C39C7;">
+                     <a href="">
+                        <img src="/image/main/banner1.svg" alt="test Image">
+                     </a>
+                  </li>
+                  <li class="banner_item" style="background-color: #FFDEDE;">
+                     <a href="">
+                        <img src="/image/main/banner2.svg" alt="test Image">
+                     </a>
+                  </li>
+                  <li class="banner_item" style="background-color: #FFFFFF;">
+                     <a href="">
+                        <img src="/image/main/banner3.svg" alt="test Image">
+                     </a>
+                  </li>
+                  <li class="banner_item" style="background-color: #A4D0F3;">
+                     <a href="">
+                        <img src="/image/main/banner4.svg" alt="test Image">
+                     </a>
+                  </li>                  
+               </ul>
+               <div class="page-btns">
+                  <div class="pagenations">
+                     <span class="icon icon-main-arrow-left"></span>
+                     <span class="start">1</span>
+                     <span>/</span>
+                     <span class="end">4</span>
+                     <span class="icon icon-main-arrow-right"></span>
+                  </div>
+               </div>
+            </div>
+      </section>
+      <script src="/CSS/js/indexstyle.js"></script>
+<section class="main-index">
+    <section class="quick-menu">
+        <ul>
+          <li>
+            <a href="" class="btn-hcare btn-main-md">
+              <img src="/image/icon/mainindex/mainicon1.svg"></img>
+              건강 관리
+            </a>
+          </li>
+          <li>
+            <a href="" class="btn-comm btn-main-md">
+              <img src="/image/icon/mainindex/mainicon2.svg"></img>
+              커뮤니티
+            </a>
+          </li>
+          <li>
+            <a href="" class="btn-qna btn-main-md">
+              <img src="/image/icon/mainindex/mainicon3.svg"></img>
+              문의
+            </a>
+          </li>
+        </ul>
+      </section>
+
+
+        <div class="tagproduct">
+                <span>어떤 성분의 식품을 원하시나요?</span>
+                <a class="d:block" href="">
+                <img src="/image/icon/mainindex/Seeall.svg"></img>
+                </a>
+        </div>
+
+            <ul class="product-box ml:2">
+              <li>
+                  <a class="btn-size-4  md:btn-size-5" href="">
+                      <img src="/image/icon/mainindex/lolipop.svg"></img>
+                      <br><span class="font-weight:bold">당이 적은 식품</span>
+                  </a>
+                  <p class="md:none color:text-3 font-weight:semibold">1회 섭취량 대비 당이 낮은 제품들을 소개해드려요</p>
+              </li>
+              <li>
+                  <a class="btn-size-5" href="">
+                      <img src="/image/icon/mainindex/milk.svg"></img>
+                      <span class="font-weight:bold">단백질이 많은 식품</span>
+                  </a>
+                  <p class="md:none color:text-3 font-weight:semibold">1회 섭취량 대비 단백질이 많이 함유된 제품들을<br> 소개해드려요</p>
+              </li> <!-- 이 부분이 수정되었습니다. -->
+              <li>
+                  <a class="btn-size-4" href="">
+                      <img src="/image/icon/mainindex/cola.svg"></img>
+                      <br><span class="font-weight:bold">당 ZERO 식품</span>
+                  </a>
+                  <p class="md:none color:text-3 font-weight:semibold">당이 함유돼있지 않은<br> 제품들을 소개해드려요</p>
+              </li>
+              <li>
+                  <a class="btn-size-5" href="">
+                      <img src="/image/icon/mainindex/juice.svg"></img>
+                      <span class="font-weight:bold">착즙 100% 식품</span>
+                  </a>
+                  <p class="md:none color:text-3 font-weight:semibold">첨가물 없이 자연 그대로 착즙한 원액의 제품들을 소개해드려요</p>
+              </li>
+          </ul>
+
+          <section>
+            <div class="post_title">
+              <span>실시간 인기 글</span>
+            </div>
+            <div class="hot_post">
+              <h1 class="font-weight:bold font-size:3 color:text-1 title">오늘 점심은 돈까스~</h1>
+              <a class="photo" href=""><img src="/image/icon/mainindex/dont.png"></a>
+              <p class="color:text-1 font-size:-1 desc">크~~이게 인생이지</p>
+                  <span class=" font-weight:semibold font-size:0 color:text-1 nickname">돈까스러버</span>
+                  <span class="font-weight:semibold font-size:0 color:text-1 count">2023-09-03 조회수 123 
+                  <span class="post-like" ><img src="/image/icon/mainindex/like.svg" alt="comments"> 50</span></span>
+                  <span class="post-comments" ><img src="/image/icon/mainindex/replyconunt.svg" alt="comments"> 20</span>
+    
+            </div>
+          </section>
+          <section>
+            <div class="hot_post">
+              <h1 class="font-weight:bold font-size:3 color:text-1 title">오늘 점심은 돈까스~</h1>
+              <a class="photo" href=""><img src="/image/icon/mainindex/dont.png"></a>
+              <p class="color:text-1 font-size:-1 desc">크~~이게 인생이지</p>
+                  <span class=" font-weight:semibold font-size:0 color:text-1 nickname">돈까스러버</span>
+                  <span class="font-weight:semibold font-size:0 color:text-1 count">2023-09-03 조회수 123 좋아요 25개</span>
+                  
+                  <span class="post-comments" ><img src="/image/icon/mainindex/replyconunt.svg" alt="comments"> 20</span>
+            </div>
+          </section>
+
+</section>
+
+</main>
+
+</body>
+</html>

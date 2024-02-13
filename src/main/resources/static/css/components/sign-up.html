@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <link href="https://webfontworld.github.io/designhouse/DesignHouse.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="/css/root.css" rel="stylesheet" type="text/css">
+    <link href="/css/util.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/icon.css" rel="stylesheet" type="text/css">
+    <link href="/css/button.css" rel="stylesheet" type="text/css">
+    <link href="/css/util/form.css" rel="stylesheet" type="text/css">
+    <link href="/css/util/box.css" rel="stylesheet" type="text/css">
+    <link href="/css/util/layout.css" rel="stylesheet" type="text/css">
+    <link href="/css/util/content.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/sign-up.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <section class="sign_up-box ph:29 d:flex flex:col align-items:center justify-content:center">
+        <h1 class="d:flex align-items:center font-weight:bold font-size:8 color:text-1">당당의 회원이<br>
+            되어주세요.</h1>
+        <form action="" method="post">
+            <fieldset>
+                <legend class="d:none">회원가입페이지</legend>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">아이디</label>
+                            <input class="sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:3-1 error success" type="text" name="user-id" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_id position:absolute">아이디아이콘</span></div>
+                            <ouput class="text success font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">사용가능한 아이디입니다</ouput>
+                            <ouput class="text error font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">중복된 아이디입니다</ouput>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">닉네임</label>
+                            <input class="sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:3-1 error success" type="text" name="user-nickname" autocomplete="off"/>
+                            <div><span class="icon icon-size:9 icon:user_id position:absolute">닉네임아이콘</span></div>
+                            <ouput class="text error font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">중복된 닉네임입니다</ouput>
+                            <ouput class="text success font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">사용 가능한 닉네임입니다</ouput>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">E-mail</label>
+                            <input class="sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:3-1" type="email" name="user-email" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_email position:absolute">이메일아이콘</span></div>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">비밀번호</label>
+                            <input class="sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:3-1 error success" id="pwd" type="password" name="user-pwd" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_pwd position:absolute">비밀번호아이콘</span></div>
+                            <div onclick="hidePassword()">
+                                <a id="pwd-show" class="view icon icon-size:8 icon:pwd-show position:absolute" href="#">비밀번호보기</a>
+                                <a id="pwd-hide" class="view icon icon-size:8 icon:pwd-non position:absolute" href="#">비밀번호가리기</a>
+                            </div>
+                            <ouput class="text error success font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">영문, 특수문자, 대소문자 구분 8자 이상 사용가능합니다</ouput>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">비밀번호 확인</label>
+                            <input class="sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:3-1 error success" type="password" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_pwd position:absolute">비밀번호아이콘</span></div>
+                            <ouput class="text error font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">입력한 비밀번호가 일치하지 않습니다</ouput>
+                            <ouput class="text success font-size:-1 d:flex justify-content:flex-end mr:3 mt:2">비밀번호가 일치합니다</ouput>
+                        </div>
+                    </div>
+                    <input class="btn btn-main mt:52" type="submit" value="등록">
+            </fieldset>
+        </form>
+    </section>
+
+    <script>
+        function hidePassword(){
+            let inputType = document.getElementById("pwd")
+            let show = document.getElementById("pwd-show")
+            let none = document.getElementById("pwd-hide")
+
+            if(inputType.type === 'password'){
+                inputType.type = "text"
+                show.style.display = "block"
+                none.style.display = "none"
+            }else{
+                inputType.type = "password"
+                show.style.display = "none"
+                none.style.display = "block"
+            }
+        }
+    </script>
+
+</body>
+
+</html>

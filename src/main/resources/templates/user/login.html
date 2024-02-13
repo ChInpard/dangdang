@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <link href="/css/components/sign-in.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<main layout:fragment="main">
+	    <section class="sign_in-box d:flex">
+	        <h1 class="title">당당에 오신 것을 <br>
+	            환영합니다.</h1>
+	        <form class="input-form" accept="login" id="log-in" method="post">
+	            <div class="description">
+                    <span class="normal" th:class="${param.error}? 'd:none':'normal'">아이디와 비밀번호를 입력해주세요</span>
+	                <span class="warning" th:class="${param.error}? 'warning':'d:none'">아이디 또는 비밀번호가 일치하지 않습니다</span>
+	            </div>
+	            <div class="form-box">
+	                <div class="input-data">
+	                    <input id="uid" class="input-box" type="text" name="username" autocomplete="off" required />
+	                    <div class="underline"></div>
+	                    <label for="uid">아이디</label>
+	                </div>  
+	            </div>
+	            <div class="form-box">
+	                <div class="input-data">
+	                    <input id="pwd" class="input-box" type="password" name="password" autocomplete="off" required />
+	                    <div class="underline"></div>
+	                        <label for="pwd">비밀번호</label>
+	                        <div onclick="hidePassword()">
+	                            <a id="pwd-show" class="view icon icon-size:8 icon:pwd-show" href="#">비밀번호보기</a>
+	                            <a id="pwd-hide" class="view icon icon-size:8 icon:pwd-non" href="#">비밀번호가리기</a>
+	                        </div>
+	                </div>
+	            </div>
+	        </form>
+	        <div class="option">
+	            <input class="m-btn btn-main btn-login" type="submit" form="log-in" value="로그인">
+	            <a class="password text" href="findIdPwd">비밀번호를 잊으셨나요 ?</a>
+	            <span class="id-check">아이디가 없나요 ? <a class="sing_up-link text" href="sign-up">회원 가입하기</a> </span> 
+	        </div>
+	        <span class="line"></span>
+	        <nav class="social-login">
+	            <form>
+	                <button class="google-btn" type="submit"><span class="deco icon:google">sign in with google</span></button>
+	                <button class="naver-btn" type="submit"><span class="deco icon:naver">네이버 로그인</span></button>
+	                <button class="kakao-btn" type="submit"><span class="deco icon:kakao">카카오 로그인</span></button>
+	            </form>
+	        </nav>
+    	</section>
+
+	    <script>
+	        function hidePassword(){
+	            let inputType = document.getElementById("pwd")
+	            let show = document.getElementById("pwd-show")
+	            let none = document.getElementById("pwd-hide")
+	
+	            if(inputType.type === 'password'){
+	                inputType.type = "text"
+	                show.style.display = "block"
+	                none.style.display = "none"
+	            }else{
+	                inputType.type = "password"
+	                show.style.display = "none"
+	                none.style.display = "block"
+	            }
+	        }
+	    </script>
+    </main>
+</body>
+
+</html>

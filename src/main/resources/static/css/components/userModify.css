@@ -1,0 +1,12 @@
+.findPwd-box
+    .input-data
+        .icon\:pwd-show{
+            display: none;
+        }
+
+.findPwd-box
+    .input-data
+        .icon{
+            top: 22px;
+            right: 15px;
+        }

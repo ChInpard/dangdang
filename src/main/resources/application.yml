@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev 
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 600MB
+      max-request-size: 600MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 'addangdangx2@gmail.com'
+    password: 'hjzj ohgo vavu hfmh'
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+      
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mappers/*Mapper.xml
+  type-aliases-package: kr.co.dangdang.web.entity

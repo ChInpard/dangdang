@@ -1,0 +1,190 @@
+.header{
+    width: 100%;
+    height: 76px;
+    display: flex;
+    font-family: 'DesignHouse';
+    font-size: var(--font-size-7);
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    z-index: 9999;
+}
+
+.header
+    .header-box{
+        width: inherit;
+        padding: 0px 25px;
+    }
+        
+.header
+    .menu{
+        /* justify-content: center; */
+        display: flex;
+        align-items: center;
+    }
+
+.header
+    .menu
+        li:first-child{
+            order: 1;
+            margin:auto;
+            /* 모바일사이즈 당당로고 가운데 정렬 */
+        }
+
+.header
+    .menu
+        li:nth-child(8){
+            order: 2;
+        }
+
+.header
+    .title{
+        color: var(--color-main-1);
+    }
+
+@media (min-width: 700px) {
+
+    .md\:header{
+        height: 80px;
+        padding: 0 25px; 
+    }
+
+    .md\:header
+        .header-box{
+            padding: 0px
+        }
+
+    .md\:header
+        .menu
+            li{
+                /* justify-content: flex-end; */
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+    .md\:header
+        .menu
+            li:first-child{
+                order: -1;
+                /* 당당로고  */
+            }
+
+    .md\:header
+        .menu
+            li:nth-child(5){
+                margin-right: 50px;
+                /* 문의 */
+            }
+
+    .md\:header
+        .menu
+            li:nth-child(8){
+                height: 30px;
+                order: 0;
+                /* 알람 */
+            }
+
+    .md\:header
+        .menu
+            li:nth-child(7){
+                margin-left: 50px;
+                /* 찜목록 */
+            }
+
+    .md\:header
+        .menu
+            .text-menu:hover{
+                color: var(--color-main-1);
+            }
+    .md\:header
+        .header-box
+            .content-box
+                .search-box
+                    form{
+                        height: 58px;
+                    }
+    .md\:header
+        .header-box
+            .content-box
+                .search-box
+                    .search-container
+                        input{
+                            display: flex;
+                            width: 50px;
+                            height: 58px;
+                            border-radius: var(--radius-7);
+                            padding-left: 60px;  /* 아이콘 공간 확보 */
+                            padding-right: 20px;
+                            font-size: var(--font-size-5);
+                            color: var(--color-text-3);
+                            border: 1px solid;
+                            border-color: var(--color-accent-1);
+                            background-image: url(/image/icon/header/search.svg);
+                            background-repeat: no-repeat;
+                            background-position: 14px;
+                            transition: ease-in-out, width .35s ease-in-out;
+                        }
+
+    .md\:header
+        .header-box
+            .content-box
+                .search-box
+                    .search-container
+                        input:hover{
+                            box-shadow: 0 3px 10px rgb(63 70 214 / 0.15);
+                        }
+
+    .md\:header
+        .header-box
+            .content-box
+                .search-box
+                    .search-container
+                        input:focus{
+                            width: 400px;
+                            box-shadow: 0 3px 10px rgb(63 70 214/ 0.15);
+                        }
+
+    .md\:header
+        .header-box
+            .content-box
+                .search-box
+                    .search-container
+                        input::placeholder{
+                            font-size: var(--font-size-5);
+                            color: var(--color-text-5);
+                        }
+
+    .md\:header
+        .header-box
+            .content-box
+                .search-box
+                    .search-container
+                        :not(:focus)::-webkit-input-placeholder {
+                            /* WebKit browsers */
+                            color: transparent;
+                        }
+
+    .md\:header
+        .menu
+            li:nth-child(n+6):nth-child(-n+8){
+                margin-right: 0px;
+                /* 찜목록, 알람 */
+            }
+
+    .md\:header
+        .menu
+            li:nth-child(n+1):nth-child(-n+3){
+                margin-right: auto;
+                /* 당당로고 ~ 건강관리까지 */
+            }
+
+    .md\:header
+        .menu
+            li:last-child{
+                /* background-color: green; */
+                padding: 0 30px 0 0 ;
+            }
+
+}

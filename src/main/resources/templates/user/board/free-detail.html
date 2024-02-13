@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout.html}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>당당 자유 게시판</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+	<link href="/CSS/components/postdetail.css" rel="stylesheet" type="text/css">
+	<link href="/CSS/components/freeBoard-button.css" rel="stylesheet" type="text/css">
+	<link href="/CSS/components/freeBoard-list.css" rel="stylesheet" type="text/css">
+
+	<script type="module" src="/js/freeboard-detail.js" defer></script>
+	<script type="module" src="/js/modal-board.js" defer></script>
+	
+	<script src="/js/Reply.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main" th:each="m : ${board}">
+		<section class="post-detail">
+			<!-- ================ 세션 아이디와 게시물 번호를 활용하기 위해 숨긴다 =============-->
+			<span sec:authorize="isAuthenticated()" id="sessionId" class="d:none"><input type="hidden"
+					 sec:authentication="principal.id"></span>
+			<span sec:authorize="isAuthenticated()" id="boardId" class="d:none"><input id="board-id" type="hidden"
+					th:value="${m.id}"></span>
+			<!-- 페이지 정보 -->
+			<input class="page" type="hidden" th:value="${page}">
+			<input class="pageSize" type="hidden" th:value="${pageSize}">
+			<!-- ================= 화면이 뒤로가면서 페이징 정보 받아와야한다. =================-->
+			<div class="detail-header">
+				<a th:href="@{/member/board/list(page=${page}, pageSize=${pageSize})}">
+					<img src="/image/icon/review/back-icon.svg" class="back-icon">
+				</a>
+				<span style="margin: 0 auto;" class="text">게시글 상세</span>
+				<!-- =========== 글쓴이와 접속한 사람이 일치할 때만 아이콘이 보인다 =============-->
+				<span sec:authorize="isAuthenticated()">
+					<span th:if="${#authentication.principal.id} == ${m.memberId}">
+						<img style="cursor: pointer;" src="/image/icon/review/post-nav.svg" class="post-nav-icon">
+					</span>
+				</span>
+			</div>
+
+			<div class="post">
+				<div class="post-header">
+					<img class="profile-image" src="/image/icon/review/profileEX.svg"
+						th:src="@{/image/member/{img}(img=${m.userImg})}" alt="Profile Image">
+					<div class="post-author-time">
+						<span class="post-author" th:text="${m.userName}">잭더리퍼</span>
+						<span th:text="${#dates.format(m.regDate, 'yyyy-MM-dd HH:mm')}">00:05</span>
+					</div>
+					<span class="post-views font-size:1">조회수 </span> <span class="view-count font-size:1"
+						th:text="${m.hit}">123</span>
+				</div>
+				<div>
+
+					<h2 class="post-title" th:text="${m.title}">점심은 돈까스~</h2>
+					<img class="post-image" style="width: 100%" th:src="@{/image/posts/{img}(img=${m.img})}">
+					<div class="detail-content font-size:1" th:text="${m.content}">모든 게 거짓이라고~내게 말해줘~</div>
+
+					<div class="like-report-block">
+						<a class="like-button" href="">
+							<img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon">
+							<span class="like-count">1264</span></a>
+						<a class="report-button" href="">신고하기</a>
+					</div>
+
+					<div class="post-reply-header">
+						<span class="post-comments">댓글 </span> <span class="comments-count"
+							th:text="${replyCnt}">23</span>
+					</div>
+				</div>
+
+				<!-- 댓글 -->
+				<div class="post-reply-content" th:each="r : ${reply}">
+					<div class="post-reply">
+						<img class="profile-image" th:src="@{/image/member/{img}(img=${r.userImg})}"
+							alt="Profile Image">
+						<div class="reply-main">
+							<div class="reply-author-time">
+								<span class="reply-author" th:text="${r.userName}">잭더리퍼</span>
+								<span class="reply-time" th:text="${#dates.format(r.regDate, 'HH:mm:ss')}">2분
+									전</span>
+							</div>
+							<p class="reply-text" th:text="${r.content}">김경호 최고</p>
+						</div>
+						<span sec:authorize="isAuthenticated()">
+							<span th:if="${#authentication.principal.id} == ${r.memberId}">
+								<img style="cursor: pointer;" src="/image/icon/review/post-nav.svg"
+									class="post-nav-icon">
+							</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="comment-card">
+					<form name="comment-form" action="/api/replies" method="post">
+						<section class="post-write">
+							<span sec:authorize="isAuthenticated()">
+								<input type="hidden" id="sessionId" name="userid"
+									th:value="${#authentication.principal.id}"></span>
+							<input type="hidden" id="board_id" name="board_id" th:value="${board.id}" />
+							<textarea id="comment_content" placeholder="내용을 입력해주세요."></textarea>
+							<div class="comment-reg">
+								<img src="/image/icon/review/reg-btn.svg" alt="reg" class="reg-icon">
+								<img src="/image/icon/review/cancel-btn.svg" alt="cancel" class="cancel-icon">
+							</div>
+						</section>
+					</form>
+				</div>
+
+			</div>
+
+		</section>
+</body>
+
+</html>

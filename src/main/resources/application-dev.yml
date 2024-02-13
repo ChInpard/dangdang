@@ -1,0 +1,34 @@
+server:
+  servlet:
+    session:
+      timeout: 200m
+
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://dang-dang.co.kr:3306/dangdang_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: dang_dang
+    password: q1w2e3r4
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: '896793579543-m403ipfr9mpor5i0bpptl29m9gldcdju.apps.googleusercontent.com'
+            client-secret: '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'
+            scope:
+              - email
+              - profile
+      
+#집 접속용 주소
+#spring:
+#  datasource:
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://192.168.219.132:3306/dangdang_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: dang_dang
+#    password: q1w2e3r4
+
+logging:
+  level:
+    kr.co.dangdang.web.repository: TRACE    

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디/비밀번호 찾기</title>
+    <link href="/css/components/findmodal.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/findIdPwd.css" rel="stylesheet" type="text/css">
+    <script src="/js/findmodal.js" defer></script>
+    <script src="/js/findpassword.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main">
+	    <section class="findIdPwd-box ph:29 d:flex flex:col align-items:center justify-content:center">
+	        <h1 class="d:flex title align-items:center font-weight:bold font-size:8 color:text-1">아이디/비밀번호 찾기</h1>
+	        <form action="" method="post" class="find-id">
+	            <fieldset>
+	                <legend class="d:none">아이디 찾기</legend>
+	                <div class="form-box d:flex mb:180">
+	                    <div class="input-data">
+	                        <input id="email" class="input-box" type="email" name="user-email" autocomplete="off" required />
+	                        <div class="underline"></div>
+	                        <label for="email">회원가입시 입력한 이메일주소</label>
+	                        <div class="btn-box d:flex justify-content:center">
+	                            <button class="m-btn btn-find font-weight:bold mt:18" type="submit">아이디 찾기</button>
+	                        </div>
+	                    </div>  
+	                </div>
+	            </fieldset>
+	        </form>
+	        <form action="" method="post" class="find-pwd">
+	            <fieldset>
+	                <legend class="d:none">비밀번호 찾기</legend>
+	                <div class="form-box">
+	                    <div class="input-data">
+	                        <input id="uid" class="input-box" type="text" name="user-email" autocomplete="off" required />
+	                        <div class="underline"></div>
+	                        <label for="uid">회원가입시 입력한 이메일주소</label>
+	                        <div class="btn-box d:flex justify-content:center">
+	                            <button class="m-btn btn-find font-weight:bold mt:18 pwd" type="submit">비밀번호 찾기</button>
+	                        </div>
+	                    </div>  
+	                </div>
+	            </fieldset>
+	        </form>
+	
+	        <!-- email로 아이디 찾았을때 나오는 modal -->
+	        <section class="modal">
+	            <div class="frame">
+	                <h1 class="title d:none">확인</h1>
+	                <div class="img-box">
+	                    <img src="/image/icon/modal/exclamation.svg">
+	                </div>
+	                <div class="content text text-align:center">
+	                    회원님의 아이디는
+	                </div>
+	                <div class="user-id text-align:center font-weight:bold">
+	                    <span></span>
+	                </div>
+	                <div class="content text text-align:center">
+	                    입니다
+	                </div>
+	                <div class="command">
+	                    <button class="m-btn btn-request pv:2 cursor-pointer:pointer">로그인하기</button>
+	                </div>
+	            </div>
+	        </section>
+	
+			<!-- 일치하는 회원정보 없을때 나오는 modal -->
+	        <section class="modal error-modal">
+	            <div class="frame">
+	                <h1 class="title d:none">확인</h1>
+	                <div class="img-box">
+	                    <img src="/image/icon/modal/exclamation.svg">
+	                </div>
+	                <div class="content text text-align:center font-weight:bold">
+	                    일치하는 회원이 없습니다
+	                </div>
+	                <div class="command">
+	                    <button class="m-btn btn-request signup pv:2 cursor-pointer:pointer">회원가입하기</button>
+	                </div>
+	            </div>
+	        </section>
+	
+	    </section>
+    </main>
+</body>
+
+</html>

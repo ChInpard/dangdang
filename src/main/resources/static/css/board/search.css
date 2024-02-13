@@ -1,0 +1,35 @@
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.search-form
+    .search-option {
+        width: 73px;
+        height: 30px;
+        border-radius: var(--radius-1);
+    }
+
+.search-form
+    .search-keyword {
+            width: 251px;
+            height: 30px;
+            border-radius: var(--radius-1);
+            border: 1px solid #A7A7A7;
+        }
+
+.search-form
+    .search-button {
+            border-radius: var(--radius-1);
+            border: none;
+            background-color: var(--color-main-1);
+            color: var(--color-base-0);
+            padding: 4px;
+        }
+
+@media (min-width: 700px) {
+    .search-form {
+        
+    }
+}

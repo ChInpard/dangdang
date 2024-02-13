@@ -1,0 +1,63 @@
+.my-page_box
+    .title{
+        display: flex;
+        align-items: center;
+        width: 335px;
+        height: 132px;
+        font-weight: bold;
+        font-size: var(--font-size-7);
+        color: var(--color-text-1)
+    }
+
+.my-page_box
+    .profileimg-box{
+        gap: 12px;
+        padding-bottom: 47px;
+    }
+
+.my-page_box
+    .profileimg-box
+        .img-box{
+            width: 112px;
+            height: 112px;
+            background-color: lightgray;
+            border-radius: 50%;
+        }
+
+.my-page_box
+    .profileimg-box
+        .img-box
+            img{
+                width: inherit;
+                height: inherit;
+                border-radius: inherit;
+            }
+
+.my-page_box
+    .profileimg-box
+        .img-box
+            .img-btn{
+                bottom: 0px;
+                right: 0px;
+
+                width: 36px;
+                height: 36px;
+                background-color: var(--color-base-0);
+                border-radius: 50%;
+
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgb(0 0 0 / 0.16);
+            }
+
+.my-page_box
+    .nav-menu
+        ul li{
+            height: 24px
+        }
+
+.my-page_box
+    .nav-menu
+        .text{
+            display: flex;
+            width: 300px;
+        }

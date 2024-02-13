@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="/CSS/components/postdetail.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<main layout:fragment="main">
+    <section class="post-detail">
+
+        <div class="detail-header">
+            <a href="">
+                <img src="/image/icon/review/back-icon.svg" class="back-icon">
+            </a>
+            <span class="text">게시글 상세</span>
+            <a href="">
+                <img src="/image/icon/review/post-nav.svg" class="post-nav-icon">
+            </a>
+        </div>
+        
+        
+
+        <div class="post">
+            <div class="post-header">
+                <img class="profile-image" src="/image/icon/review/profileEX.svg" alt="Profile Image">
+                <div class="post-author-time">
+                    <span class="post-author">잭더리퍼</span>
+                    <span class="post-time">00:05</span>
+                </div>
+                <span class="post-views">조회수 </span> <span class="view-count">123</span>
+            </div>
+        <div>
+
+            <h2 class="post-title">점심은 돈까스~</h2>
+            <img class="post-image" src="/image/review/dont.png" alt="revimg">
+            
+            <div class="detail-content">모든 게 거짓이라고~</div>
+            <div class="detail-content">내게 말해줘~</div>
+
+            
+            <div class="like-report-block">
+                <a class="like-button" href="">
+                    <img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon">
+                    <span class="like-count">1264</span></a>
+                <a class="report-button" href="">신고하기</a>
+            </div>
+            
+            <div class="post-reply-header">
+                <span class="post-comments">댓글 </span> <span class="comments-count">23</span>
+            </div>
+        </div>
+        
+        <div class="post-reply-content">
+            <div class="post-reply">
+                <img class="profile-image" src="/image/icon/review/profileEX.svg" alt="Profile Image">
+                <div class="reply-main">
+                    <div class="reply-author-time">
+                        <span class="reply-author">잭더리퍼</span>
+                        <span class="reply-time">2분 전</span>
+                    </div>
+                    <p class="reply-text">김경호 최고</p>
+                    <div class="reply-actions">
+                        <span>답글 쓰기</span>
+                        <span>신고하기</span>
+                        <span class="post-like"><img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon like-count"> 50</span>
+                    </div>
+                </div>
+                <a href="">
+                    <img src="/image/icon/review/post-nav.svg" class="post-reply-nav-icon">
+                </a>
+            </div>
+
+            <div class="post-reply-content">
+                <div class="post-reply">
+                    <img class="profile-image" src="/image/icon/review/profileEX.svg" alt="Profile Image">
+                    <div class="reply-main">
+                        <div class="reply-author-time">
+                            <span class="reply-author">잭더리퍼</span>
+                            <span class="reply-time">2분 전</span>
+                        </div>
+                        <p class="reply-text">김경호 최고</p>
+                        <div class="reply-actions">
+                            <span>답글 쓰기</span>
+                            <span>신고하기</span>
+                            <span class="post-like"><img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon like-count"> 50</span>
+                        </div>
+                    </div>
+                    <a href="">
+                        <img src="/image/icon/review/post-nav.svg" class="post-reply-nav-icon">
+                    </a>
+                </div>
+
+            
+
+            <div class="comment-card">
+                <textarea placeholder="내용을 입력해주세요."></textarea>
+                <div class="comment-reg">
+                    <img src="/image/icon/review/reg-btn.svg" alt="reg" class="reg-icon">
+                    <img src="/image/icon/review/cancel-btn.svg" alt="cancel" class="cancel-icon">
+                </div>
+            </div>
+            
+
+
+        </div>
+
+
+     </section>
+    
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="/CSS/components/postdetail.css" rel="stylesheet" type="text/css">
+    <link href="/CSS/components/postdetail.css" rel="stylesheet" type="text/css">
+    <script src="/js/Reply.js" defer></script>
+    
+</head>
+<body>
+
+<main layout:fragment="main">
+    <section class="post-detail">
+        <div class="detail-header">
+            <a th:href="@{/}">
+                <img src="/image/icon/review/back-icon.svg" class="back-icon">
+            </a>
+            <span class="text">게시글 상세</span>
+            <a href="">
+                <img src="/image/icon/review/post-nav.svg" class="post-nav-icon">
+            </a>
+        </div>
+        
+        
+
+        <div class="post">
+            <div class="post-header">
+
+                <img class="profile-image" 
+                     th:src="@{/image/member/default.png}" 
+                     alt="Profile Image">
+                <div class="post-author-time">
+                    <span class="post-author" th:text="${reviewBoard.memberId}">작성자 닉네임</span>
+                    <span class="post-time" th:text="${#dates.format(reviewBoard.reg_date, 'HH:mm')}">00:05</span>
+                </div>
+                <span class="post-views">조회수 </span> <span class="view-count" th:text="${reviewBoard.hit}">123</span>
+            </div>
+            <div>
+                <h2 class="post-title" th:text="${reviewBoard.title}">게시글 제목</h2>
+                <img class="post-image" th:src="@{/image/review/{filename}(filename=${reviewBoard.img})}" alt="게시글 이미지" th:if="${reviewBoard.img}">
+                <div class="detail-content" th:utext="${reviewBoard.content}">게시글 내용</div>
+
+            
+            <div class="like-report-block">
+                <a class="like-button" href="">
+                    <img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon">
+                    <span class="like-count">1264</span></a>
+                <a class="report-button" href="">신고하기</a>
+            </div>
+            
+            <div class="post-reply-header">
+                <span class="post-comments">댓글 </span> <span class="comments-count">23</span>
+            </div>
+        </div>
+        
+		<div th:each="reply : ${replies}" class="post-reply-content">
+		    <div class="post-reply">
+		        <img class="profile-image" 
+		             th:src="@{/image/icon/review/profileEX.svg}" 
+		             alt="Profile Image">
+		        <div class="reply-main">
+		            <div class="reply-author-time">
+		                <span class="reply-author" th:text="${reply.author}">잭더리퍼</span>
+		                <span class="reply-time" th:text="${#dates.format(reply.time, 'HH:mm')}">2분 전</span>
+		            </div>
+		            <p class="reply-text" th:text="${reply.text}">김경호 최고</p>
+		            <div class="reply-actions">
+		                <span>답글 쓰기</span>
+		                <span>신고하기</span>
+		                <span class="post-like">
+		                    <img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon">
+		                    <span class="like-count" th:text="${reply.likeCount}">50</span>
+		                </span>
+		            </div>
+		        </div>
+		        <a href="#" th:href="@{/reply/edit/{id}(id=${reply.id})}">
+		            <img src="/image/icon/review/post-nav.svg" class="post-reply-nav-icon">
+		        </a>
+		    </div>
+		</div>
+
+
+            <div class="post-reply-content">
+                <div class="post-reply">
+                    <img class="profile-image" src="/image/icon/review/profileEX.svg" alt="Profile Image">
+                    <div class="reply-main">
+                        <div class="reply-author-time">
+                            <span class="reply-author">잭더리퍼</span>
+                            <span class="reply-time">2분 전</span>
+                        </div>
+                        <p class="reply-text">김경호 최고</p>
+                        <div class="reply-actions">
+                            <span>답글 쓰기</span>
+                            <span>신고하기</span>
+                            <span class="post-like"><img src="/image/icon/review/like.svg" alt="Like Icon" class="like-icon like-count"> 50</span>
+                        </div>
+                    </div>
+                    <a href="">
+                        <img src="/image/icon/review/post-nav.svg" class="post-reply-nav-icon">
+                    </a>
+                </div>
+
+            
+
+		<div class="comment-card">
+		    <form name="comment-form" action="/api/replies" method="post">
+		        <section class="post-write">
+					<span sec:authorize="isAuthenticated()">
+					<input type="hidden" id="sessionId" name="userid" th:value="${#authentication.principal.id}"></span>
+		            <input type="hidden" id="board_id" name="board_id" th:value="${reviewBoard.id}" />
+		            <textarea id="comment_content" placeholder="내용을 입력해주세요."></textarea>
+		            <div class="comment-reg">
+		                <img src="/image/icon/review/reg-btn.svg" alt="reg" class="reg-icon">
+		                <img src="/image/icon/review/cancel-btn.svg" alt="cancel" class="cancel-icon">
+		            </div>
+		        </section>
+		    </form>
+		</div>
+
+            
+
+
+        </div>
+
+
+     </section>
+    
+</body>
+</html>

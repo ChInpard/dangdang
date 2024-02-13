@@ -1,0 +1,30 @@
+.d\:none { display: none !important; }
+.d\:flex { display: flex !important; }
+.d\:block { display: block !important; }
+.d\:inline { display: inline !important; }
+.d\:inline-block { display: inline-block !important; }
+
+.colspan\:2{
+    grid-column: span 2 !important;
+}
+
+.line{
+    width: 335px;
+    border: 1px solid #e9e9e9;
+}
+
+
+
+@media (min-width: 700px) {
+
+    .md\:d\:none { display: none !important; }
+    .md\:d\:flex { display: flex !important; }
+    .md\:d\:block { display: block !important; }
+    .md\:d\:inline { display: inline !important; }
+    .md\:d\:inline-block { display: inline-block !important; }
+    
+    .md\:colspan\:2{
+        grid-column: span 2 !important;
+    }
+
+}

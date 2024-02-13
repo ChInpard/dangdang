@@ -1,0 +1,90 @@
+.fab-container {
+  /* position: relative;
+  bottom:60px;
+  left: 168px; */
+
+  position: relative;
+  bottom: 15%;  /* 상대적 단위로 변경 */
+  left: 50%;  /* 상대적 단위로 변경 */
+  transform: translate(-50%, -50%); /* 위치 조정 */
+}
+
+.fab-main {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: VAR(--color-main-2);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 2;
+  background-image: url(/image/icon/tab-bar/FABdefault.svg);
+  text-indent: -9999px;
+  font-size: 0;
+  background-size: cover;
+  
+}
+
+.fab-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fab-container.active .fab-item {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fab-container.active #fab-item1 {
+  transform: translate(-60px, -60px);
+  background-image: url(/image/icon/tab-bar/FABhealthy.svg);
+  background-size: cover;
+}
+
+.fab-container.active #fab-item2 {
+  transform: translate(60px, -60px);
+  background-image: url(/image/icon/tab-bar/FABqna.svg);
+  background-size: cover;
+}
+
+.fab-container.active #fab-item3 {
+  transform: translate(-3.5px, -80px);
+  background-image: url(/image/icon/tab-bar/FABcomm.svg);
+  background-size: cover;
+}
+
+.fab-container.active .fab-main {
+  transform: rotate(-90deg);
+  background-image: url(/image/icon/tab-bar/FABactive.svg);
+  transition: transform 0.2s ease-in-out;
+  background-size: cover;
+}
+
+.fab-main:hover .fab-icon {
+  background-image: url(/image/icon/tab-bar/FABhover.svg);
+  background-size: cover;
+}
+
+.fab-main:hover {
+  background-image: url(/image/icon/tab-bar/FABhover.svg);
+  background-size: cover;
+}
+
+.fab-main, .fab-item {
+  border: none; 
+}

@@ -1,0 +1,68 @@
+.body {
+  background-color: var(--color-background-1);
+  margin: 0; 
+}
+
+.post-edit {
+  margin: 0 auto;
+  width: 393px;
+}
+
+.edit-block, .edit-title, .edit-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.text {
+  font-weight: bold;
+  font-size: var(--font-size-4);
+}
+
+.edit-title textarea, .edit-body textarea {
+    width: 393px;
+    border: none;
+    resize: none;
+    padding: 0;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.2em;
+    color: rgba(var(--color-base-11-rgb), 0.2);
+    overflow: hidden;
+    font-size: var(--font-size-4);
+}
+
+.edit-body {
+    flex-direction: column;
+    height: 700px;
+    border-top: solid var(--color-base-11) 1px;
+    border-bottom: solid var(--color-base-11) 1px;
+}
+
+.edit-body textarea {
+    flex-grow: 1;
+    align-self: flex-start;
+}
+
+.pic-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin-top: var(--gap-4); 
+}
+
+@media (min-width: 701px) {
+  .post-edit {
+      margin: 0 auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .post-edit {
+      width: 100%;
+      align-items: center;
+  }
+}

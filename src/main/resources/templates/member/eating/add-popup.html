@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout.html}"
+	>
+<head>
+    
+</head>
+<body>
+	<div class="popup-container d:none">
+	
+        <section class="add-popup">
+            <h1 class="d:none">팝업창</h1>
+            <section class="search-bar md:search-bar">
+                <h1 class="d:none">이름 검색 폼</h1>
+                <form action="">
+                    <fieldset >
+                        <legend class="d:none">이름 검색</legend>
+                        <div class="input-box position:relative">
+                            <input class="search-text" type="text" placeholder="당곰이가 건강한 식품을 찾아드려요!">
+                            <button type="submit" class="icon icon-search-popup icon-size:10 back:transparent search-input position:absolute" value="검색">
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+    
+            <section class="product-list" style="overflow-y: scroll;">
+                <h1 class="d:none">팝업 음식 리스트</h1>
+                <section class="card d:none p:2 bg-color:base-0">
+					<h1 class="font-size:1 font-weight:bold">${m.name}</h1>
+	                <div class="kcal-block">
+	                    <span class="font-size:0 font-weight:bold color:base-7">${m.kcal}</span>
+	                    <span class="font-size:0 font-weight:bold color:base-7">kcal</span>
+	                </div>
+	            </section>
+            </section>
+        	<section class="category-section">
+                <h1 class="d:none">카테고리 리스트 필터</h1>
+                <ul class="category-filter font-weight:bold">
+                  <li>
+					  <label class=""><input type="radio" name="category" value="1">아침</label>
+				  </li>
+                  <li>
+					  <label class=""><input type="radio" name="category" value="2">점심</label>
+                  </li>
+                  <li>
+					  <label class=""><input type="radio" name="category" value="3">저녁</label>
+                  </li>
+                  <li>
+					  <label class=""><input type="radio" name="category" value="4">간식</label>
+                  </li>
+                </ul>
+            </section>
+            <div class="button">
+                <button type="submit" class="btn">확인</button>
+            </div>
+        </section>
+	</div>
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강정보 입력</title>
+    <link href="/css/components/body-inform.css" rel="stylesheet" type="text/css">
+    <script type="module" src="/js/body-inform.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main" id="inform">
+		<span sec:authorize="isAuthenticated()"><input type="hidden" id="sessionId" name="userid" th:value="${#authentication.principal.id}"></span>
+	    <section class="body-inform_box ph:29 d:flex flex:col align-items:center justify-content:center">
+	        <h1 class="d:flex title align-items:center font-weight:bold font-size:8 color:text-1">건강정보 입력</h1>
+	        <form action="/member/inform" method="Post" @submit.prevent="saveData">
+	            <fieldset>
+	                <legend class="d:none">건강정보 입력 페이지</legend>
+	                    <div class="gender-box">
+	                        <div class="label">
+	                        <span>성별</span>
+	                        </div>
+	                        <div class="checkbox-wrap">
+	                            <label class="text"><input type="radio" name="gender" value="여성" v-model="list.userGender">여성</label>
+	                            <label class="text"><input type="radio" name="gender" value="남성" v-model="list.userGender">남성</label>
+	                        </div>
+	                    </div>
+	                    <div class="body-box pt:45">
+	                        <div class="birthday-box" id="info_birth">
+	                            <div>
+	                                <label class="label">생년월일</label>
+	                            </div>
+	                            <select class="mt:2 year font-size:3 color:base-14 bg-color:transparent border-radius:4-1" id="birth-year" v-model="list.userYear">
+	                              <option :value="null">년도</option>
+	                              <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+	                            </select>
+	                            <select class="month font-size:3 color:base-14 bg-color:transparent border-radius:4-1" id="birth-month" v-model="list.userMonth">
+	                              <option :value="null">월</option>
+  	                              <option v-for="month in months" :key="month" :value="month">{{ month }}</option>
+	                            </select>
+	                            <select class="date font-size:3 color:base-14 bg-color:transparent border-radius:4-1" id="birth-day" v-model="list.userDate">
+	                              <option :value="null">일</option>
+	                              <option v-for="day in days" :key="day" :value="day">{{ day }}</option>
+	                            </select>
+	                          </div>
+	                    </div>
+	                    <div class="body-box num-box pt:45">
+	                        <div class="body-data w:inherit position:relative">
+	                            <label class="label">키</label>
+	                            <input class="body_input height-input font-size:3 color:base-14 bg-color:transparent border-radius:4-1 mt:10" id="user-height" type="text" autocomplete="off" pattern="^[0-9]+$"/ v-model="list.userHeight">
+	                            <div class="text">
+	                                <span class="errorText">숫자만 입력 가능합니다</span>
+	                                <div class="unit position:absolute">cm</div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="body-box num-box pt:45">
+	                        <div class="body-data w:inherit position:relative">
+	                            <label class="label">체중</label>
+	                            <input class="body_input weight-input font-size:3 color:base-14 bg-color:transparent border-radius:4-1 mt:10" id="user-weight" type="text" autocomplete="off" pattern="^[0-9]+$"/ v-model="list.userWeight">
+	                            <div class="text">
+	                                <span class="errorText">숫자만 입력 가능합니다</span>
+	                                <div class="unit position:absolute">kg</div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <input class="m-btn btn-second mt:90" type="submit" value="저장하기">
+	            </fieldset>
+	        </form>
+	    </section>
+	</main>
+</body>
+
+</html>

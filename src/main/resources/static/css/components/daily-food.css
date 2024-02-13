@@ -1,0 +1,217 @@
+.daily-food{
+    margin: 0 20px;
+    min-width: 260px;
+	max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-5);
+}
+
+.daily-food
+    .card{
+        background-color: var(--color-base-0);
+        border-radius: var(--radius-4);
+    }
+
+.daily-food
+    h1{
+        font-size: var(--font-size-5);
+        font-weight: 700;
+        line-height: 130%;
+        letter-spacing: 0.24px;
+    }
+
+.daily-food
+    .add{
+        font-size: var(--font-size-2);
+        color: var(--color-text-9);
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0.144px;
+        border:none;
+    }
+
+.daily-food
+    .meal{
+        height: auto;
+        
+        padding: var(--gap-2);
+
+        display: grid;
+        grid-template-columns: 52px 1fr 16px;
+        grid-template-rows: 1fr 1fr;
+        gap: 0 var(--gap-4-1);
+    }
+
+.daily-food
+    .meal
+        h1{
+            grid-column: 2;
+            grid-row: 1;
+            align-self: center;
+
+            font-size: var(--font-size-4);
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: 0.192px;
+        }
+
+.daily-food
+    .meal
+        .kcal-block{
+            grid-column: 2;
+            grid-row: 2;
+            align-self: center;
+
+            font-size: var(--font-size-3);
+            font-weight: 700;
+            color: var(--color-text-6);
+            line-height: 150%;
+            letter-spacing: 0.168px;
+        }
+
+
+.daily-food
+    .meal
+        .img-block{
+            grid-column: 1;
+            grid-row: 1 / span 2;
+
+            width: 52px;
+            height: 52px;
+            background-color: var(--color-base-2);
+            text-align: center;
+
+            border-radius: var(--radius-3);
+        }
+
+.daily-food
+    .meal
+        .drop-down{
+            grid-row: 1 /span 2;
+            align-self: center;
+        }
+
+.daily-food
+    .meal
+        .drop-down
+        	a.rotate{ 
+		        transform: rotate(180deg);
+		    	transition: transform 0.2s;
+	    	}
+
+.daily-food
+    .card
+        .lunch
+            .img-block{
+                background-color: var(--color-accent-5-1);
+            }
+
+.daily-food
+    .card
+        .dinner
+            .img-block{
+                background-color: var(--color-accent-13-1);
+            }
+
+.daily-food
+    .card
+        .snack
+            .img-block{
+                background-color: var(--color-accent-8-1);
+            }
+
+.daily-food
+    .card
+        .img-block
+            span{
+                position: relative;
+                top: 13px;
+            }
+
+
+.daily-food
+    .food-card{
+        background-color: var(--color-base-0);
+        padding: var(--gap-2);
+        margin-left: var(--gap-4);
+        border-radius: var(--radius-4);
+        
+        display: none;
+    }
+
+.daily-food
+    .food-card
+        .food-name{
+            grid-column: 1;
+            grid-row: 1;
+            align-self: center;
+
+            font-size: var(--font-size-4);
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: 0.192px;
+        }
+
+.daily-food
+    .food-card
+        .food-kcal-block{
+            grid-column: 1;
+            grid-row: 2;
+            align-self: center;
+
+            font-size: var(--font-size-3);
+            font-weight: 700;
+            color: var(--color-text-6);
+            line-height: 150%;
+            letter-spacing: 0.168px;
+        }
+
+.daily-food
+    .food-card.show{
+        display: grid;
+        position:relative;
+    }
+    
+.daily-food
+    .food-card
+    	.delete{
+		right: 0;
+	    width: 61px;
+	    height: 61px;
+	    border-radius: 20px;
+	    display: inline-flex;
+	    justify-content: center;
+	    align-items: center;
+    }
+    
+/* ==== layout ======================= */
+.daily-food
+		.title{
+        position: relative;
+        top: 40px;
+	}
+	
+.daily-food
+    .add{
+        text-align: right;
+        position: relative;
+    }
+    
+@media (min-width: 700px){
+	.daily-food{
+        width: 400px;
+    	margin: 60px auto;
+	}
+	
+	.daily-food
+		.title{
+        position: relative;
+        top: 20px;
+	}
+	
+	.daily-food
+        .add{
+            top: -20px;
+        }
+}

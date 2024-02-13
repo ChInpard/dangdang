@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--<meta id="sessionId" name="userid" th:content="${#authentication.principal.id}">-->
+</head>
+<body>
+   <aside class="nav-bar md:d:none" id="navBar">
+	    <span sec:authorize="isAuthenticated()"><input type="hidden" id="sessionId" name="userid" th:value="${#authentication.principal.id}"></span>
+        <div class="header-top">
+            <h1 class="title">
+                <a href="/index"><span class="nav-title">당당</span></a>
+            </h1>
+            <a href=""><span class="icon icon-size:10 icon-x_button x_button"></span></a>
+        </div>
+        <ul class="nav-list" id="app">
+            <div class="profile" > 
+            <a href="/member/index"><span sec:authorize="isAuthenticated()">
+				<img class="profile-box" :src="userImg">
+			</span></a>
+                <div class="user-inf">
+					<li sec:authorize="isAnonymous()">로그인을 해주세요</li>
+                    <li sec:authorize="isAuthenticated()" class="id"><span sec:authentication="principal.username">당당</span></li>
+                    <li sec:authorize="isAuthenticated()" class="email"><span sec:authentication="principal.email"><a href="">danggom@dang-dang.co.kr</a></li>
+                </div>  
+            </div>
+            <div class="menu">
+                <li sec:authorize="isAnonymous()"><a class="icon icon-size:12 icon-nav-person vertical-align:center" href="/user/login"></a>
+                	<div class="menu-title"><a href="/user/login">로그인</a></div>   
+                </li>
+                <li sec:authorize="isAuthenticated()"><a class="icon icon-size:12 icon-logout" href="/user/logout"></a>
+                    <div class="menu-title"><a href="/user/logout">로그아웃</a></div>   
+                </li>
+                <li><a class="icon icon-size:12 icon-search-bk" href="/user/product/list-result"></a>
+                    <div class="menu-title"><a href="/user/product/list-result">식품 검색</a></div>   
+                </li>
+                <li><a class="icon icon-size:12 icon-healthmanagement" href="/member/eating/daily-intake"></a>
+                    <div class="menu-title"><a href="/member/eating/daily-intake">식단 관리</a></div>   
+                </li>
+                <li><a class="icon icon-size:12 icon-community" href="/user/board/list"></a>
+                    <div class="menu-title"><a href="/user/board/list">커뮤니티</a></div>   
+                </li>
+                <li><a class="icon icon-size:12 icon-qna" href=""></a>
+                    <div class="menu-title"><a href="">문의</a></div>   
+                </li>
+            </div>
+        </ul>
+    </aside>
+</body>
+</html>

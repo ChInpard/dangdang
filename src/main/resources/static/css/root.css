@@ -1,0 +1,142 @@
+
+:root{
+    /* ========== color palette ===========  */
+    
+    /* base color */
+    --color-base-0: #FFFFFF;
+    --color-base-1: #FAFAFE;
+    --color-base-2: rgb(179, 179, 179, 0.15);
+    --color-base-3: #F3F2F2;
+    --color-base-4: #F0F1F9;
+    --color-base-5: #E5E6EE;
+    --color-base-6: #DDDDDD;
+    --color-base-7: #D9D9D9;
+    --color-base-8: #CBCBCB;
+    --color-base-9: rgba(151,151,151, 0.5); /* 50% */ 
+    --color-base-10: #B1B1B1;
+    --color-base-11: #ADADAD;
+    --color-base-12: #979797;
+    --color-base-13: #B3B3B3;
+    --color-base-14: #404040;
+    --color-base-15: #6F6C90;
+
+
+
+    /* main color */
+    --color-main-1: #3F46D6;
+    --color-main-2: rgba(63,70,214, 0.5);
+
+    /* card-section */
+    --card-section-1: #B3B3B3;
+
+    /* accent color */
+    --color-accent-1: #585CE5;
+    --color-accent-2: #0094FF;
+    --color-accent-3: #A3AED0;
+    --color-accent-4: #99B1F5;
+    --color-accent-5: #A1A3F6;
+    --color-accent-5-1: rgba(161,163,246, 0.65);
+    --color-accent-6: #D0D1FF;
+    --color-accent-7: #47B87B;
+    --color-accent-8: #99D7DB;
+    --color-accent-8-1: rgba(153,215,219, 0.5);
+    --color-accent-9: #C9EBED;
+    --color-accent-10: #E4F8EB;
+    --color-accent-11: #EAF2FF;
+    --color-accent-12: #ED6358;
+    --color-accent-13: #FF6B78;
+    --color-accent-13-1: rgba(255,114,114, 0.4);
+    --color-accent-14: #FF727259;
+    --color-accent-15: #FAE9E9;
+    --color-accent-16: #9E5613;
+    --color-accent-17: #F69625;
+    --color-accent-18: #FFAB47;
+    --color-accent-19: #F6BE2C80;
+    --color-accent-20: #FFCC68;
+    --color-accent-21: #FFD96A;
+
+
+    /* text color */
+    --color-text-1: #0F2851;
+    --color-text-2: #415371;
+    --color-text-3: #898D9E;
+    --color-text-4: #A39999;
+    --color-text-5: #C1C1C1;
+    --color-text-6: #D4D4D4;
+    --color-text-7: #FFFFFF;
+    --color-text-8: #3F46D6;
+    --color-text-9: #585CE5;
+
+
+    /* color-background */
+    --color-background-1: #FAFAFE;
+
+
+    /* radius size */
+    --radius-1: 5px; 
+    --radius-2: 8px;
+    --radius-3: 10px;
+    --radius-4: 12px;
+    --radius-4-1: 14px;
+    --radius-5: 16px;
+    --radius-6: 20px;
+    --radius-7: 32px;
+   
+
+    /* icon size */
+    --icon-size-1: 6px;
+    --icon-size-2: 9px;
+    --icon-size-3: 10px;
+    --icon-size-4: 11px;
+    --icon-size-5: 12px;
+    --icon-size-6: 13px;
+    --icon-size-7: 15px;
+    --icon-size-8: 16px;
+    --icon-size-9: 18px;
+    --icon-size-10: 20px;
+    --icon-size-11: 22px;
+    --icon-size-12: 24px;
+    --icon-size-13: 26px;
+    --icon-size-14: 28px;
+    --icon-size-15: 30px;
+    --icon-size-16: 32px;
+    --icon-size-17: 35px;
+    --icon-size-18: 40px;
+    --icon-size-19: 58px;
+
+
+    /* font-size */
+    --font-size-1: 10px;
+    --font-size-1-1: 10px;
+    --font-size-2: 12px;
+    --font-size-3: 14px;
+    --font-size-4: 16px;
+    --font-size-5: 20px;
+    --font-size-6: 24px;
+    --font-size-6-1: 28px;
+    --font-size-7: 30px;
+
+
+    
+    /* gap-size */
+    --gap-1: 5px;
+    --gap-2: 8px;
+    --gap-3: 10px;
+    --gap-4: 15px;
+    --gap-4-1: 16px;
+    --gap-5: 20px;
+    --gap-5-1: 22px;
+    --gap-5-2: 30px;
+    --gap-6: 35px;
+    --gap-7: 45px;
+
+    /* padding-size */
+    --padding-1: 5px;
+    --padding-2: 8px;
+    --padding-3: 10px;
+    --padding-4: 15px;
+    --padding-5: 20px;
+    --padding-5-1: 30px;
+    --padding-6: 35px;
+    --padding-7: 45px;
+}

@@ -1,0 +1,67 @@
+.tab-bar{
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    width: 100%;
+    min-width: 320px;
+    max-width: 430px;
+    margin: 0 auto;
+    height: 83px;
+    background-image: url(/image/icon/tab-bar/tab_bar.svg);
+    background-position: center;
+    /*잠깐 떨구는 부분*/
+    /* margin: 100px;      */
+    /* background-color: yellow; */
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.menu-button{
+        /* display: flex;
+        flex-direction: row;
+        margin-top: 30px; */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        width: 100%;  /* 100%로 변경 */
+        
+}
+
+.tab-bar 
+    .left-menu-button{
+        display: flex;
+        margin-left: -25px;
+        margin-top: 30px;
+        width: 100%;
+}
+
+.tab-bar 
+    .right-menu-button{
+        display: inherit;
+        margin-top: 30px;
+        padding-right: 30px;
+}
+
+.tab-bar 
+    .left-menu-button .home{
+        margin-right: 40px;
+    }
+
+.tab-bar 
+    .right-menu-button .heart{
+        margin-right: 40px;
+    }
+
+    /* .tab-bar 
+    .right-menu-button .profile{
+        margin-right: 33px;
+    } */
+
+    @media (min-width:430px){
+        .tab-bar{
+        display: none;
+    }
+}

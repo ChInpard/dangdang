@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+    <link href="/css/components/daily-intake.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/wishlist.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/add-popup.css" rel="stylesheet" type="text/css">
+    <script src="/js/add-popup.js" defer></script>
+</head>
+<body> 
+	<main layout:fragment="main">
+	    <section class="nf-diary">
+	        <h1 class="title">일별 섭취 다이어리</h1>
+	        <div class="calendar">
+	            <a class="deco icon-calendar back:transparent" href="/member/eating/daily-diary">식단 관리</a>
+	        </div>
+	        <div th:if="${datas.empty}">
+				<section class="list">
+		            <h1 class="d:none">일별 섭취 집계</h1>
+		            <ul>
+		                <li>
+		                    <div class="icon-box">
+		                        <a class="icon icon-rice icon-size:12 back:transparent" href="">탄수화물</a>
+		                    </div>
+		                    <div class="arrow">
+		                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+		                    </div>
+		                    <div class="nutrition">
+		                        탄수화물(g)
+		                    </div>
+		                    <div>
+		                        <span class="intake">0</span><span>/</span><span class="daily-intake">400</span>
+		                    </div>
+		               </li>
+		                <li>
+		                    <div class="icon-box">
+		                        <a class="icon icon-lolipop icon-size:12 back:transparent" href="">당</a>
+		                    </div>
+		                    <div class="arrow">
+		                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+		                    </div>
+		                    <div class="nutrition">
+		                        당(g)
+		                    </div>
+		                    <div>
+		                        <span class="intake">0</span><span>/</span><span class="daily-intake">50</span>
+		                    </div>
+		                </li>
+		                <li>
+		                    <div class="icon-box">
+		                        <a class="icon icon-chicken icon-size:12 back:transparent" href="">단백질</a>
+		                    </div>
+		                    <div class="arrow">
+		                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+		                     </div>
+		                    <div class="nutrition">
+		                        단백질(g)
+		                    </div>
+		                    <div>
+		                        <span class="intake">0</span><span>/</span><span class="daily-intake">60</span>
+		                    </div>
+		                </li>
+		                <li>
+		                    <div class="icon-box">
+		                        <a class="icon icon-dounut icon-size:12 back:transparent" href="">지방</a>
+		                    </div>
+		                    <div class="arrow">
+		                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+		                    </div>
+		                    <div class="nutrition">
+		                        지방(g)
+		                    </div>
+		                    <div>
+		                        <span class="intake">0</span><span>/</span><span class="daily-intake">54</span>
+		                    </div>
+		                </li>
+		                <li>
+		                    <div class="icon-box">
+		                        <a class="icon icon-salt icon-size:12 back:transparent" href="">나트륨</a>
+		                    </div>
+		                    <div class="arrow">
+		                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+		                    </div>
+		                    <div class="nutrition">
+		                        나트륨(mg)
+		                    </div>
+		                    <div>
+		                        <span class="intake">0</span><span>/</span><span class="daily-intake">3000</span>
+		                    </div>
+		                </li>
+		                <li>
+		                    <div class="icon-box">
+		                        <a class="icon icon-popcorn icon-size:12 back:transparent" href="">콜레스테롤</a>
+		                    </div>
+		                    <div class="arrow">
+		                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+		                    </div>
+		                    <div class="nutrition">
+		                        콜레스테롤(mg)
+		                    </div>
+		                    <div>
+		                        <span class="intake">0</span><span>/</span><span class="daily-intake">3000</span>
+		                    </div>
+		                </li>
+		            </ul>
+		        </section>
+			</div>
+	        <section class="list" th:each="m : ${datas}">
+	            <h1 class="d:none">일별 섭취 집계</h1>
+	            <ul>
+	                <li>
+	                    <div class="icon-box">
+	                        <a class="icon icon-rice icon-size:12 back:transparent" href="">탄수화물</a>
+	                    </div>
+	                    <div class="arrow">
+	                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+	                    </div>
+	                    <div class="nutrition">
+	                        탄수화물(g)
+	                    </div>
+	                    <div>
+	                        <span class="intake" th:text="${m.sumCarb}">360</span><span>/</span><span class="daily-intake">400</span>
+	                    </div>
+	               </li>
+	                <li>
+	                    <div class="icon-box">
+	                        <a class="icon icon-lolipop icon-size:12 back:transparent" href="">당</a>
+	                    </div>
+	                    <div class="arrow">
+	                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+	                    </div>
+	                    <div class="nutrition">
+	                        당(g)
+	                    </div>
+	                    <div>
+	                        <span class="intake" th:text="${m.sumSugar}">18</span><span>/</span><span class="daily-intake">50</span>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="icon-box">
+	                        <a class="icon icon-chicken icon-size:12 back:transparent" href="">단백질</a>
+	                    </div>
+	                    <div class="arrow">
+	                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+	                     </div>
+	                    <div class="nutrition">
+	                        단백질(g)
+	                    </div>
+	                    <div>
+	                        <span class="intake" th:text="${m.sumPro}">138</span><span>/</span><span class="daily-intake">60</span>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="icon-box">
+	                        <a class="icon icon-dounut icon-size:12 back:transparent" href="">지방</a>
+	                    </div>
+	                    <div class="arrow">
+	                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+	                    </div>
+	                    <div class="nutrition">
+	                        지방(g)
+	                    </div>
+	                    <div>
+	                        <span class="intake" th:text="${m.sumFat}">48</span><span>/</span><span class="daily-intake">54</span>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="icon-box">
+	                        <a class="icon icon-salt icon-size:12 back:transparent" href="">나트륨</a>
+	                    </div>
+	                    <div class="arrow">
+	                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+	                    </div>
+	                    <div class="nutrition">
+	                        나트륨(mg)
+	                    </div>
+	                    <div>
+	                        <span class="intake" th:text="${m.sumNa}">3600</span><span>/</span><span class="daily-intake">3000</span>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="icon-box">
+	                        <a class="icon icon-popcorn icon-size:12 back:transparent" href="">콜레스테롤</a>
+	                    </div>
+	                    <div class="arrow">
+	                        <a class="icon icon-arrow icon-size:12 back:transparent" href="">이동</a>
+	                    </div>
+	                    <div class="nutrition">
+	                        콜레스테롤(mg)
+	                    </div>
+	                    <div>
+	                        <span class="intake" th:text="${m.sumChol}">3200</span><span>/</span><span class="daily-intake">3000</span>
+	                    </div>
+	                </li>
+	            </ul>
+	        </section>
+	    </section>
+    	<div th:replace="~{/member/eating/wishlist::.wishlist}"></div>
+    	<div th:replace="~{/member/eating/add-popup::.popup-container}"></div>
+    </main>
+</body>
+</html>

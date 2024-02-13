@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+
+    <link href="/css/components/sign-up.css" rel="stylesheet" type="text/css">
+    <script type="module" src="/js/sign-up.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main">
+	    <section class="sign_up-box ph:29 d:flex flex:col align-items:center justify-content:center">
+        <h1 class="d:flex title align-items:center font-weight:bold font-size:8 color:text-1">당당의 회원이<br>
+            되어주세요.</h1>
+        <form action="" method="post">
+            <fieldset>
+                <legend class="d:none">회원가입페이지</legend>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">아이디</label>
+                            <input class="id-input sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:4-1" type="text" name="user-id" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_id position:absolute">아이디아이콘</span></div>
+                            <div class="text">
+                                <output class="successText">사용가능한 아이디입니다</output>
+                                <output class="errorText">중복된 아이디입니다</output>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">닉네임</label>
+                            <input class="nickname-input sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:4-1" type="text" name="user-name" autocomplete="off"/>
+                            <div><span class="icon icon-size:9 icon:user_id position:absolute">닉네임아이콘</span></div>
+                            <div class="text">
+                                <ouput class="errorText">중복된 닉네임입니다</ouput>
+                                <ouput class="successText">사용 가능한 닉네임입니다</ouput>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">E-mail</label>
+                            <input class="email-input sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:4-1" type="email" name="user-email" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_email position:absolute">이메일아이콘</span></div>
+                            <div class="text">
+                                <ouput class="errorText">중복된 이메일주소 입니다</ouput>
+                                <ouput class="successText">사용 가능한 이메일주소입니다</ouput>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">비밀번호</label>
+                            <input class="pwd-input sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:4-1" id="pwd" type="password" name="user-pwd" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_pwd position:absolute">비밀번호아이콘</span></div>
+                            <div onclick="hidePassword()">
+                                <a id="pwd-show" class="view icon icon-size:8 icon:pwd-show position:absolute" href="#">비밀번호보기</a>
+                                <a id="pwd-hide" class="view icon icon-size:8 icon:pwd-non position:absolute" href="#">비밀번호가리기</a>
+                            </div>
+                            <div class="text">
+                                <ouput class="errorText">영문대소문자,숫자와 특수문자를 포함한 8자 이상 사용가능합니다</ouput>
+                                <ouput class="successText">사용 가능한 비밀번호입니다</ouput>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sign-up pt:20">
+                        <div class="sign_up-data w:inherit position:relative">
+                            <label class="color:text-3 font-size:-1 ml:2">비밀번호 확인</label>
+                            <input class="pwd-check-input pwd-check sign-up_input ph:45:10 font-size:3 color:base-14 bg-color:transparent border-radius:4-1" type="password" autocomplete="off" required />
+                            <div><span class="icon icon-size:9 icon:user_pwd position:absolute">비밀번호아이콘</span></div>
+                            <div class="text">
+                                <ouput class="errorText">입력한 비밀번호가 일치하지 않습니다</ouput>
+                                <ouput class="successText">비밀번호가 일치합니다</ouput>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="m-btn btn-main mt:52" type="submit" value="등록">
+           		</fieldset>
+        	</form>
+    	</section>
+	
+	    <script>
+	        function hidePassword(){
+	            let inputType = document.getElementById("pwd")
+	            let show = document.getElementById("pwd-show")
+	            let none = document.getElementById("pwd-hide")
+	
+	            if(inputType.type === 'password'){
+	                inputType.type = "text"
+	                show.style.display = "block"
+	                none.style.display = "none"
+	            }else{
+	                inputType.type = "password"
+	                show.style.display = "none"
+	                none.style.display = "block"
+	            }
+	        }
+	    </script>
+	</main>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color-background-1);
+    padding: 200px 43px;
+    height: 70px;
+    font-size: var(--font-size-2);
+    flex-shrink: 0;
+}
+
+    .footer
+        dl{
+            display: grid;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+    .footer 
+        .logo{
+            font-family: 'DesignHouse';
+            font-size: var(--font-size-7);
+            color: var(--color-main-1);
+            font-weight: bold;
+            -webkit-text-stroke: 0.5px var(--color-main-1);
+        }
+
+    .footer
+        .copyright{
+            color: var(--color-base-14);
+            font-weight: bold;
+        }
+
+
+@media (min-width: 700px) {
+    .footer{
+        height: 104px;
+        padding: 0 43px;
+    }
+    .footer
+        dl{
+            grid-template-columns: 1fr 1fr;
+            justify-content: space-between;
+            gap: 350px;
+            text-align: left;
+        }
+
+}

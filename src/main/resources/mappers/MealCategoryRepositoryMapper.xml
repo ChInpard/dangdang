@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dangdang.web.repository.MealCategoryRepository">
+  
+  <select id="findByMealCategory" resultType="MealCategoryView">
+    select 
+		c.id,
+	    c.name,
+	    COALESCE(es.reg_date, #{eatingDate}) eating_date,
+	    COALESCE(es.member_id, #{memberId}) member_id,
+	    sum(COALESCE(kcal, 0)) sum_kcal
+	from meal_category c
+		left join 
+	    (	
+			select
+				e.*,
+	            p.kcal
+			from eating e
+				left join member m on (e.member_id = m.id)
+				left join product p on (e.product_id = p.id)
+			where
+				e.member_id = #{memberId} and
+				DATE_FORMAT(e.reg_date, '%Y-%m-%d') = #{eatingDate}
+		)as es on (c.id = es.meal_category_id)
+	where
+		c.id = #{mealCategoryId}
+	group by
+		c.id, c.name, es.reg_date, es.member_id
+  </select> 
+  
+  </mapper>

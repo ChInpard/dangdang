@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+	<title>당곰이의 검색 결과</title>
+	<meta id="csrf" name="_csrf" th:content="${_csrf.token}">
+	<meta id="_key" th:content="${_csrf.headerName}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="/css/components/product-list-result.css" rel="stylesheet" type="text/css">
+    <script src="/js/product-list-result.js" defer></script>
+    <script type="module" src="/js/product-list-result-vue.js" defer></script>
+
+</head>
+<body>
+	<main layout:fragment="main">
+     <section class="list category-section">
+        <h1 class="d:none">검색폼</h1>
+        <form>
+            <fieldset class="search-form">
+                <legend class="d:none">검색폼</legend>
+                <button class="icon icon-size-8 icon-search search-find" type="submit">검색아이콘</button>
+                <input type="text" class="input-query" name="keyword" placeholder="당곰이가 건강한 식품을 찾아드려요!">                
+                <input class="d:none" type="submit" value="검색">
+            </fieldset>
+        </form>
+          
+        <div class="tagproduct">
+            <span>#어떤 성분의 식품을 원하시나요?</span>
+            <a class="d:block" href="">
+            <img src="/image/icon/product/list-result/seeall.svg"></img>
+            </a>
+        </div>
+
+        <ul class="product-box ml:2">
+            <li>
+                <a class="btn-size-5" href="">
+                    <img src="/image/icon/product/list-result/lolipop-1.svg"></img>
+                    <span class="font-weight:bold">당이 적은 식품</span>
+                </a>
+                <p class="d:none md:d:block color:text-3 font-weight:semibold">1회 섭취량 대비 당이 낮은 제품들을 소개해드려요</p>
+            </li>
+            <li>
+                <a class="btn-size-5" href="">
+                    <img src="/image/icon/product/list-result/milk.svg"></img>
+                    <span class="font-weight:bold">단백질이 많은 식품</span>
+                </a>
+                <p class="d:none md:d:block color:text-3 font-weight:semibold">1회 섭취량 대비 단백질이 많이 함유된 제품들을<br> 소개해드려요</p>
+            </li> 
+            <li>
+                <a class="btn-size-5" href="">
+                    <img src="/image/icon/product/list-result/cola.svg"></img>
+                    <span class="font-weight:bold">당 ZERO 식품</span>
+                </a>
+                <p class="d:none md:d:block color:text-3 font-weight:semibold">당이 함유돼있지 않은<br> 제품들을 소개해드려요</p>
+            </li>
+            <li>
+                <a class="btn-size-5" href="">
+                    <img src="/image/icon/product/list-result/juice.svg"></img>
+                    <span class="font-weight:bold">착즙 100% 식품</span>
+                </a>
+                <p class="d:none md:d:block color:text-3 font-weight:semibold">첨가물 없이 자연 그대로 착즙한 원액의 제품들을 소개해드려요</p>
+            </li>
+        </ul>
+  
+        <section>
+  			<div>
+				<product-info />	  
+			</div>
+        </section>
+	         
+        </section>
+    </section>    
+</body>
+</html>

@@ -1,0 +1,109 @@
+.health-graph
+	.calendar{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		background-color: var(--color-main-1);
+		border-radius: var(--radius-4);
+		position: relative;
+		top: -30px;
+	}
+	
+.health-graph
+	.calendar{
+		display: inline-flex;
+		align-self: end;
+	}
+/* ======================== health-graph ================================ */
+
+.health-graph{
+    display: flex;
+    flex-direction: column;
+    min-width: 260px;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.health-graph
+    h1{
+        margin: 40px 0;
+        width: 87%;
+        padding:0;
+        font-weight: bold;
+        font-size: var(--font-size-5);
+        
+        display: flex;
+	    align-items: center;
+	    justify-content: center;
+    }
+
+.health-graph
+    .chart-inf{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-self: center;
+        width: 232px;
+        transform: translate(0, -130px);
+    }
+    
+.nutri-info
+	#kcal {
+	    width: 222px !important;
+	    height: 232px !important;
+	    align-self: center;
+	    position: relative;
+	    background-image:url(/image/icon/care/daily-food/doughnut-background.svg);
+	    background-repeat: no-repeat;
+	    background-position: center center;
+	    background-position-y: 45px;
+	}
+
+/* ======================== graph-inf ================================ */
+
+.health-graph
+    .graph-inf {
+        display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    gap: 30px;
+    }
+
+
+.bar-chart{
+        width: 294px !important;
+        height: 30px !important;
+        border-radius: 20px;
+        background-color: #F0F1F9;
+    }
+
+@media (min-width: 700px){
+
+/* ======================== md:nutri-info ================================ */
+
+    .nutri-info{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nutri-info 
+        .nutri-chart ul{
+            width: 290px;
+            flex-wrap: wrap;
+        }
+
+/* ======================== md:health-graph ================================ */
+    .health-graph{
+	    margin: 0 auto;
+	    width: 400px;
+    }
+    
+    .health-graph
+    	h1{
+			width: 90%;
+			margin: 60px auto;
+		}
+}

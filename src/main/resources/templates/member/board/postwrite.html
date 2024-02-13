@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="/CSS/components/postwrite.css" rel="stylesheet" type="text/css">
+	<script src="/js/postreg.js" defer></script>
+</head>
+<body>
+<main layout:fragment="main">
+	<form name="write-form" action="/board/write" autocomplete="off" method="post">
+    <section class="post-write">
+		<input type="hidden" id="category" name="board_category_id" value="1">
+		<span sec:authorize="isAuthenticated()" id="sessionId" class="d:none"><input type="hidden" sec:authentication="principal.id"></span>
+        <div class="write-block">
+            <a class="d:block" href="">
+                <img src="/image/icon/review/back-icon.svg" class="back-icon">
+            </a>
+            <span class="text">게시글 작성</span>
+		<input type="image" src="/image/icon/review/write-icon.svg" alt="Submit" class="write-icon">
+        </div>
+        <div class="reg-title">
+            <textarea class="textarea" placeholder="제목을 입력해주세요" rows="1" name="title" maxlength="50"></textarea>
+            <span>0/50</span>
+        </div>
+        <div class="reg-body">
+            <textarea class="body-textarea" placeholder="내용을 입력해주세요" name="content" maxlength="400"></textarea>
+            <span>0/400</span>
+        </div>
+        <div class="pic-upload">
+            <label for="fileInput">
+              <img src="/image/icon/review/picup.svg" class="picup">
+            </label>
+            <input type="file" id="fileInput" style="display: none;">
+          </div>
+     </section>
+	</form>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+    <link href="/css/components/daily-graph.css" rel="stylesheet" type="text/css">
+    <script src="/js/daily-detail.js" defer></script>
+    
+</head>
+<body>
+	<section class="health-graph">
+        <h1 class="title">일별 섭취 다이어리</h1>
+        <div class="calendar">
+			<a class="icon icon-calendar-lg icon-size:10 back:transparent open-calendar-button" href="#">캘린더</a>
+		</div>
+		<div th:if="${datas.empty}">
+			<section class="graph-section">
+		        <canvas id="kcal"></canvas>
+		        <div class="chart-inf">
+		            <div class="font-size:1 font-weight:bold">
+						<a href="">하루 섭취 칼로리</a>
+					</div>
+		            <div>
+		                <span class="d:inline-block font-size:8 font-weight:bold">0</span>
+		                <span class="d:inline-block font-size:2 font-weight:bold color:text-6 ml:1"> kcal</span>
+		            </div>
+		        </div>
+				
+				<section class="nutri-info">
+			        <section class="nutri-chart">
+			            <ul class="d:flex md:d:flex">
+			                <li class="position:relative">
+			                    <canvas id="carb"></canvas>
+			                    <div class="mt:2">
+			                        <span class="font-weight:bold">탄수화물</span>
+			                    </div>
+			                    <div class="nutri-detail">
+			                        <span class="font-size:0 font-weight:bold">0</span>
+			                        <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+			                    </div>
+			                    
+			                </li>
+			                <li class="position:relative">
+			                    <canvas id="pro"></canvas>
+			                    <div class="mt:2">
+			                        <div class="font-weight:bold">단백질</div>
+			                        <div class="nutri-detail">
+			                            <span class="font-size:0 font-weight:bold">0</span>
+			                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+			                        </div>  
+			                    </div>    
+			                </li>
+			                <li class="position:relative">
+			                    <canvas id="sugar"></canvas>
+			                    <div class="mt:2">
+			                        <div class="font-weight:bold">당</div>
+			                        <div class="nutri-detail">
+			                            <span class="font-size:0 font-weight:bold">0</span>
+			                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+			                        </div>
+			                    </div>
+			                </li>
+			                <li class="md:d:none position:relative">
+			                    <canvas id="etc"></canvas>
+			                    <div class="mt:2">
+			                        <div class="font-weight:bold">기타</div>
+			                        <div class="nutri-detail position:relative">
+			                            <span class="font-size:0 font-weight:bold">0</span>
+			                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+			                        </div>
+			                    </div>
+			                </li>
+				
+		                    <li class="d:none md:d:inline-block position:relative">
+		                        <canvas id="fat"></canvas>
+		                        <div class="mt:2">
+		                            <div class="font-weight:bold">지방</div>
+		                            <div class="nutri-detail position:relative">
+		                                <span class="font-size:0 font-weight:bold">0</span>
+		                                <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+		                            </div>
+		                        </div>
+		                    </li>
+		                    <li class="d:none md:d:inline-block position:relative">
+		                        <canvas id="na"></canvas>
+		                        <div class="mt:2">
+		                            <div class="font-weight:bold">나트륨</div>
+		                            <div class="nutri-detail position:relative">
+		                                <span class="font-size:0 font-weight:bold">0</span>
+		                                <span class="font-size:-1 font-weight:bold color:text-6">mg</span>
+		                            </div>
+		                        </div>
+		                    </li>
+		                    <li class="d:none md:d:inline-block position:relative">
+		                        <canvas id="chol"></canvas>
+		                        <div class="mt:2">
+		                            <div class="font-weight:bold">콜레스테롤</div>
+		                            <div class="nutri-detail position:relative">
+		                                <span class="font-size:0 font-weight:bold">0</span>
+		                                <span class="font-size:-1 font-weight:bold color:text-6">mg</span>
+		                            </div>
+		                        </div>
+		                    </li>
+						</ul>
+					</section>
+				</section>
+			</section>
+		</div>
+		<section class="graph-section" th:each="m : ${datas}">
+	        <canvas id="kcal"></canvas>
+	        <div class="chart-inf">
+	            <div class="font-size:1 font-weight:bold">
+					<a href="">하루 섭취 칼로리</a>
+				</div>
+	            <div>
+	                <span class="d:inline-block font-size:8 font-weight:bold" th:text="${m.sumKcal}">1284</span>
+	                <span class="d:inline-block font-size:2 font-weight:bold color:text-6 ml:1"> kcal</span>
+	            </div>
+	        </div>
+			
+			<section class="nutri-info">
+		        <section class="nutri-chart">
+		            <ul class="d:flex md:d:flex">
+		                <li class="position:relative">
+		                    <canvas id="carb"></canvas>
+		                    <div class="mt:2">
+		                        <span class="font-weight:bold">탄수화물</span>
+		                    </div>
+		                    <div class="nutri-detail position:relative">
+		                        <span class="font-size:0 font-weight:bold" th:text="${m.sumCarb}">462</span>
+		                        <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+		                    </div>
+		                    
+		                </li>
+		                <li class="position:relative">
+		                    <canvas id="pro"></canvas>
+		                    <div class="mt:2">
+		                        <div class="font-weight:bold">단백질</div>
+		                        <div class="nutri-detail position:relative">
+		                            <span class="font-size:0 font-weight:bold" th:text="${m.sumPro}">60</span>
+		                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+		                        </div>  
+		                    </div>    
+		                </li>
+		                <li class="position:relative">
+		                    <canvas id="sugar"></canvas>
+		                    <div class="mt:2">
+		                        <div class="font-weight:bold">당</div>
+		                        <div class="nutri-detail position:relative">
+		                            <span class="font-size:0 font-weight:bold" th:text="${m.sumSugar}">sugar</span>
+		                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+		                        </div>
+		                    </div>
+		                </li>
+		                <li class="md:d:none position:relative">
+		                    <canvas id="etc"></canvas>
+		                    <div class="mt:2">
+		                        <div class="font-weight:bold">기타</div>
+		                        <div class="nutri-detail position:relative">
+		                            <span class="font-size:0 font-weight:bold" th:text="${m.etc}">462</span>
+		                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+		                        </div>
+		                    </div>
+		                </li>
+			
+	                    <li class="d:none md:d:inline-block position:relative">
+	                        <canvas id="fat"></canvas>
+	                        <div class="mt:2">
+	                            <div class="font-weight:bold">지방</div>
+	                            <div class="nutri-detail position:relative">
+	                                <span class="font-size:0 font-weight:bold" th:text="${m.sumFat}">30</span>
+	                                <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="d:none md:d:inline-block position:relative">
+	                        <canvas id="na"></canvas>
+	                        <div class="mt:2">
+	                            <div class="font-weight:bold">나트륨</div>
+	                            <div class="nutri-detail position:relative">
+	                                <span class="font-size:0 font-weight:bold" th:text="${m.sumNa}">450</span>
+	                                <span class="font-size:-1 font-weight:bold color:text-6">mg</span>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="d:none md:d:inline-block position:relative">
+	                        <canvas id="chol"></canvas>
+	                        <div class="mt:2">
+	                            <div class="font-weight:bold">콜레스테롤</div>
+	                            <div class="nutri-detail position:relative">
+	                                <span class="font-size:0 font-weight:bold" th:text="${m.sumChol}">2400</span>
+	                                <span class="font-size:-1 font-weight:bold color:text-6">mg</span>
+	                            </div>
+	                        </div>
+	                    </li>
+					</ul>
+				</section>
+			</section>
+		</section>
+	</section>
+		
+</body>
+</html>

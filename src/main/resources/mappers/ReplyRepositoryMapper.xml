@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dangdang.web.repository.ReplyRepository">
+   
+
+    <select id="getRepliesByReviewBoardId" resultType="Reply">
+        SELECT *
+        FROM reply
+        WHERE board_id = #{reviewBoardId}
+        ORDER BY reg_date DESC
+    </select>
+    
+    <select id="last" resultType="Reply">
+      select * from reply order by id desc
+    </select>
+
+	<insert id="addReply" parameterType="Reply">
+	    INSERT INTO reply (content, board_id, member_id)
+	    VALUES (#{content}, #{boardId}, #{memberId})
+	</insert>
+
+
+    <!-- ID로 댓글 조회 -->
+    <select id="findReplyById" resultType="ReplyView">
+        SELECT *
+        FROM reply_view
+        WHERE board_id = #{id}
+    </select>
+
+	<update id="update" parameterType="ReViewBoard">
+    UPDATE `board`
+    <set>
+      <if test="korName != null">`kor_name` = #{korName},</if>
+      <if test="engName != null">`eng_name` = #{engName},</if>
+      <if test="price != null">`price` = #{price},</if>
+      <if test="img != null">`img` = #{img},</if>
+      <if test="regDate != null">`reg_date` = #{regDate},</if>
+      <if test="hit != null">`hit` = #{hit},</if>
+      <if test="memberId != null">`member_id` = #{memberId}</if>
+     </set>
+   	WHERE `id` = #{id}
+   </update>
+   
+	<delete id="delete">
+		DELETE FROM board WHERE id=#{id}
+	</delete>
+	
+	<select id="findCnt" parameterType="int">
+		SELECT count(*)
+	    FROM reply_view
+	    WHERE board_id = #{id}
+	</select>
+
+  </mapper>

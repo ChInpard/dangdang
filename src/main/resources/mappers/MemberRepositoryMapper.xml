@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dangdang.web.repository.MemberRepository">
+	
+	<insert id="reg" parameterType="Member"> <!-- insert는 반환타입이 없다 -->
+		INSERT INTO `member`
+		(`user_pwd`,`user_email`,`user_name`,`user_id`)
+		VALUES
+		(#{userPwd}, #{userEmail}, #{userName}, #{userId})
+	</insert>
+	
+	<select id="last" resultType="Member">
+		select * from member order by id desc limit 1
+	</select>
+	
+	<select id="findListViewById" resultType="BoardView">
+		select * from 
+		board_view 
+		where member_id = #{memberId};
+	</select>
+
+	<select id="findAll" resultType="Member">
+		select * from member
+	</select>
+	
+	<select id="findMemberById" resultType="Member">
+		select * from member where user_id = #{userId}
+	</select>
+	
+	<select id="findByUserId" resultType="Member">
+		select * from member where user_id = #{userId}
+	</select>
+	
+	<select id="findById" resultType="Member">
+		select * from member where id = #{id}
+	</select>
+	
+	<select id="findByEmail" resultType="Member">
+		select * from member where user_email = #{userEmail}
+	</select>
+	
+	<update id="edit" parameterType="Member">
+		UPDATE member
+		<set>
+			<if test="userId != null">`user_id` = #{userId},</if>
+			<if test="userPwd != null">`user_pwd` = #{userPwd},</if>
+			<if test="userName != null">`user_name` = #{userName},</if>
+			<if test="userEmail != null">`user_email` = #{userEmail},</if>
+			<if test="regDate != null">`reg_date` = #{regDate},</if>
+			<if test="userImg != null">`user_img` = #{userImg},</if>
+			<if test="userGender != null">`user_gender` = #{userGender},</if>
+			<if test="userWeight != null">`user_weight` = #{userWeight},</if>
+			<if test="userHeight != null">`user_height` = #{userHeight},</if>
+			<if test="userYear != null">`user_year` = #{userYear},</if>
+			<if test="userMonth != null">`user_month` = #{userMonth},</if>
+			<if test="userDate != null">`user_date` = #{userDate}</if>
+			<if test="userStatus != null">`user_status` = #{userStatus}</if>
+		</set>
+		WHERE `user_id` = #{userId}
+	</update>
+	
+	<update id="statusUpdate" parameterType="Member">
+		UPDATE member
+		set
+		user_status = 0 
+		where id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+    <link href="/css/components/daily-detail.css" rel="stylesheet" type="text/css">
+    <!--<script src="/js/daily-detail.js" defer></script>-->
+    <script src="/js/lib/chart.min.3.6.0.js" defer></script>
+</head>
+<body>
+	<main layout:fragment="main">
+		<section class="nutri-info">
+		    <section class="health-graph" th:each="m : ${datas}">
+		        <h1 class="title btn btn-main">일일 건강 그래프</h1>
+		        <canvas id="kcal"></canvas>
+		        <div class="chart-inf">
+		            <div class="font-size:2 font-weight:bold" style="flex-grow: 0.3;">하루 섭취 칼로리</div>
+		            <div class="kcal-block">
+		                <span class="d:inline-block font-size:7 font-weight:bold kcal"
+		                		th:text="${m.sumKcal}">2340</span>
+		                <span class="d:inline-block font-size:2 font-weight:bold color:text-6 ml:1"> kcal</span>
+		            </div>
+		        </div>
+		        
+		        <ul class="graph-inf font-size:0 font-weight:500">    
+		            <li>
+						<span>탄수화물 </span><span class="carb" th:text="${m.sumCarb}">360 </span><span>/ </span><span>400 </span><span>g</span>
+		                <canvas id="carb" class="mt:2 bar-chart"></canvas>
+		            </li>
+		            <li>
+						<span>당류 </span><span class="sugar" th:text="${m.sumSugar}">30 </span><span>/ </span><span>50 </span><span>g</span>
+		                <canvas id="sugar" class="mt:2 bar-chart"></canvas>
+		            </li>
+		            <li>
+						<span>단백질 </span><span class="pro" th:text="${m.sumPro}">70 </span><span>/ </span><span>100 </span><span>g</span>
+		                <canvas id="pro" class="mt:2 bar-chart"></canvas>
+		            </li>
+		            <li>
+						<span>지방 </span><span class="fat" th:text="${m.sumFat}">30 </span><span>/ </span><span>50 </span><span>g</span>
+		                <canvas id="fat" class="mt:2 bar-chart"></canvas>
+		            </li>
+		            <li>
+						<span>나트륨 </span><span class="na" th:text="${m.sumNa}">3600 </span><span>/ </span><span>3000 </span><span>mg</span>
+		                <canvas id="na" class="mt:2 bar-chart"></canvas>
+		            </li>
+		            <li>
+						<span>콜레스테롤 </span><span class="chol" th:text="${m.sumChol}">3400 </span><span>/ </span><span>3000 </span><span>mg</span>
+		                <canvas id="chol" class="mt:2 bar-chart"></canvas>
+		            </li>
+		        </ul>
+		    </section>
+		</section>
+</body>
+</html>

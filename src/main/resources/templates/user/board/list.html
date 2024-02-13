@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout.html}">
+
+<head>
+	<link href="/css/components/board-list.css" rel="stylesheet" type="text/css">
+	<script src="/js/board/list.js" defer></script>
+</head>
+
+<body>
+
+	<main layout:fragment="main">
+		<!-- 게시글 분류버튼  -->
+		<section>
+			<h1 class="d:none">게시글 카테고리</h1>
+			<ul class="btn-category">
+				<li><a href="" class="btn btn-disable">자유게시판</a></li>
+				<li><a href="" class="btn">후기게시판</a></li>
+				<li><a href="" class="btn btn-disable">정보공유</a></li>
+			</ul>
+		</section>
+		<!-- 게시글 분류버튼 끝 -->
+		<div class="board-head">
+			<h1 class="board-title font-size:4 font-weight:bold">회원님들의 건강식을 올려주세요!</h1>
+			<div class="select">
+				<select class="select-box">
+					<option value="0">전체</option>
+					<option value="1">최신순</option>
+					<option value="2">조회순</option>
+					<option value="3">댓글순</option>
+					<option value="4">좋아요</option>
+				</select>
+			</div>
+		</div>
+		<!-- 게시글 -->
+		<section class="card-container" th:each="m : ${list}">
+			<h1 class="d:none">게시글</h1>
+			<h1 th:text="${m.id}" class="d:none">게시글번호</h1>
+			<section class="board-card border-radius:3">
+				<h1>
+					<a class="heading-4 color:black" th:text="${m.title}"
+						th:href="@{/board/read(id=${m.id}, page=${page}, pageSize=${pageSize})}">제목입니다.</a>
+				</h1>
+				<p class="content-block font-size:2 font-weight:normal" th:text="${m.content}">내용입니다.</p>
+				<div class="name-block">
+					<span class="color:black font-weight:bold">잭더리퍼</span>
+				</div>
+				<div class="img-block">
+					<a href=""><img class="border-radius:4" src="/image/board/돈까스.png"></a>
+				</div>
+				<div class="chat-block d:flex">
+					<img src="/image/icon/board/chat.svg"><span>23</span>
+				</div>
+				<div class="sub-block d:flex">
+					<span th:text"${m.regDate}">2023-09-03</span>
+					<span>조회수 123</span>
+					<img src="/image/icon/board/like.svg" class="icon-size:8"><span>2023</span>
+				</div>
+			</section>
+
+			<!-- 글쓰기 버튼 끝 -->
+			<!-- 게시글 끝 -->
+		</section>
+
+		<!-- 글쓰기 버튼 -->
+		<div class="btn-icon-write writeBtn">
+			<button id="writeBtn" class="btn-write" th:onclick="|location.href='@{/board/write}'|"><i
+					class="fa fa-pencil"></i> 글쓰기</button>
+		</div>
+
+
+<!--		<div class="search-container">
+			<form action="@{/board/list}" class="search-form" method="get">
+				<select class="search-option" name="option">
+					<option value="A" th:selected="${ph.sc.option=='A' or ph.sc.option==''}">제목+내용</option>
+					<option value="T" th:selected="${ph.sc.option=='T'}">제목만</option>
+					<option value="W" th:selected="${ph.sc.option=='W'}">작성자</option>
+				</select>
+
+				<input type="text" name="keyword" class="search-input" value="${ph.sc.keyword}"
+					placeholder="검색어를 입력해주세요">
+				<input type="submit" class="search-button" value="검색">
+			</form>
+		</div>-->
+
+		<!-- 페이저 화면이 잘 안나온다. 해결해야함-->
+		<!-- 페이저 -->
+		<section th:each="m : ${ph}">
+			<h1 class="d:none">페이저</h1>
+			<th:block th:if="${ph.showPrev}">
+				<a th:href="@{/board/list(page=${ph.beginPage-1}, pageSize=${ph.pageSize})}">&lt;</a>
+			</th:block>
+
+			<th:block th:each="i : ${#numbers.sequence(ph.beginPage, ph.endPage)}">
+				<a th:href="@{/board/list(page=${i}, pageSize=${ph.pageSize})}" th:text="${i}"></a>
+			</th:block>
+
+			<th:block th:if="${ph.showNext}">
+				<a th:href="@{/board/list(page=${ph.endPage+1}, pageSize=${ph.pageSize})}">&gt;</a>
+			</th:block>
+		</section>
+		<!-- 페이저 끝 -->
+	</main> <!-- /main -->
+
+
+</body>
+
+</html>

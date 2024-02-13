@@ -1,0 +1,146 @@
+/*기본상태*/
+#navBar {
+    position: absolute;  
+    top: 0;
+    left: -500%;
+    z-index:10000;
+}
+
+
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+    width: 266px;
+    height: 1024px;
+    background-color: var(--color-base-1);
+}
+
+.nav-bar
+	.title{
+		height: 100%;
+	}
+
+/*눌렀을때*/
+.nav-bar.show {
+	left: 0px !important;
+  	transition: left 0.5s ease-in-out 0s;
+}
+
+/*닫을떄*/
+.nav-bar {
+    transition: left 0.5s ease-in-out 0s;
+}
+
+.nav-bar
+    .header-top{
+	    display: flex;
+	    flex-direction: row;
+	    white-space: nowrap;
+	    align-items: center;
+	    background-color: var(--color-accent-1);
+	    padding: 20.67px 124px 20.67px 89px;
+	}
+
+.nav-bar
+    .header-top
+        .nav-title {
+            font-weight: 600;
+            font-family: 'DesignHouse';
+            font-size: var(--font-size-7);
+            color: var(--color-base-1);
+        }
+
+
+.nav-bar .header-top .x_button {
+    overflow: visible;
+    margin-left: 74px;
+	background-size: contain;
+}
+
+.nav-bar
+    .nav-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 218px;
+        height: 462px;
+    }
+    
+.nav-bar
+    .nav-list
+    	.profile-box{
+			display: flex;
+			justify-content: center;
+	        width: 30px;
+	        height: 30px;
+	        border-radius: 50%;
+	    }
+
+.nav-list
+    .profile{
+        display:flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 218px;
+        height: 56px;
+        margin-top: 30px;
+        margin-left: 24px;
+    }   
+    
+.nav-list
+    .profile
+    	.image{
+			background-size: contain;
+		}
+    	
+
+.nav-list
+    .profile .user-inf{
+        margin-left: 10px;
+    }
+
+
+.nav-list
+    .profile .id{
+        
+        font-size: var(--font-size-2);
+        font-weight: bold; 
+        text-align: left;
+
+    }
+
+.nav-list
+    .profile .email{
+        font-size: var(--font-size-1);
+        color:var(--color-text-3);
+        font-weight: bold; 
+        text-align: center;
+
+    }
+
+.nav-list
+    .menu {
+        display: flex;
+        flex-direction: column;
+
+        width: 218px;
+        height: 376px;
+        margin-left: 40px;
+        
+        text-align: center;
+        font-size: var(--font-size-4);
+        font-weight: bold;
+    }
+
+.nav-list .menu
+    li{
+    display: flex;
+    margin-top: 60px;
+}
+
+.nav-list .menu
+     .menu-title{
+
+    margin-left: 16px;
+    height: 24px;
+}

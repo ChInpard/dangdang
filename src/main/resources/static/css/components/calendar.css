@@ -1,0 +1,123 @@
+.calendar-section {
+    width: 315px;
+}
+
+.calendar-section
+    .calendar{
+		height: 350px;
+	}
+
+.calendar-section
+    .calendar
+        .btn-calendar{
+            width: 7px;
+            height: 12px;
+        }
+
+.calendar-section
+    .calendar
+        .btn-prev{
+            left:15px;
+            width: 10px;
+            height: 18px;
+        }
+
+.calendar-section
+    .calendar
+        .btn-next{
+            left:45px;
+            width: 10px;
+            height: 18px;
+        }
+
+.calendar-section
+    .calendar
+        .dates{
+            width: 40px;
+            height: 40px;
+        }
+
+.calendar
+    thead
+        .cal-nav:first-child
+            .current-month {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.1em;
+}
+
+.calendar
+    thead
+        tr:last-child
+            td {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 600;     
+}
+
+.calendar
+    tbody
+        tr>td>a{
+                font-family: 'Montserrat', sans-serif;
+                height: 40px;
+                width: 40px;
+                border-radius: var(--radius-7);
+                transition: .2s;
+                line-height: 45px;
+                margin: 2.5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }        
+.calendar-section
+	.button{
+	    width: 312px;
+	    margin: 20px 0;
+	}
+
+/* ==== script ================== */
+.today {
+    background-color: var(--color-accent-21);            
+    color: var(--color-base-0);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.past-day {
+    cursor: pointer;
+}
+.future-day {
+    cursor: pointer;
+}
+
+.past-day:hover{
+    background-color: var(--color-base-3);
+}
+.future-day:hover{
+    background:var(--color-base-3);
+}
+
+
+
+.past-day.choice-day,
+.future-day.choice-day,
+.today.choice-day {
+    background: var(--color-main-1);
+    color: var(--color-base-0);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.calendar-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    z-index: 9999;
+}

@@ -1,0 +1,76 @@
+.sign_up-box
+    .title{
+        display: flex;
+        align-items: center;
+        width: 335px;
+        height: 132px;
+        font-weight: bold;
+        font-size: var(--font-size-7);
+        color: var(--color-text-1)
+    }
+
+.sign-up
+    .sign_up-data
+        a{
+            bottom: 0px;
+            top: 37px;
+            right: 15px;
+        }
+
+.sign-up
+    .sign_up-data
+        .icon\:pwd-show{
+            display: none;
+        }
+
+.sign-up
+    .sign_up-data
+        .sign-up_input{
+            height: 46px;
+            width: 248px;
+            border: 1px solid;
+            border-color: var(--color-text-5);
+        }
+
+.sign-up
+    .sign_up-data
+        .text{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+.sign-up
+    .sign_up-data
+        .error{
+            border-color: var(--color-accent-12);
+        }
+
+.sign-up
+    .sign_up-data
+        .success{
+            border-color: var(--color-accent-7);
+        }
+
+.sign-up
+    .sign_up-data
+        .text
+            .successText{
+                justify-content: flex-end;
+                color: var(--color-accent-7);
+                font-size: var(--font-size-2);
+                margin-top: 5px;
+                margin-right: 8px;
+                display: none;
+            }
+
+.sign-up
+    .sign_up-data
+        .text
+            .errorText{
+                justify-content: flex-end;
+                color: var(--color-accent-12);
+                font-size: var(--font-size-2);
+                margin-top: 5px;
+                margin-right: 8px;
+                display: none;
+            }

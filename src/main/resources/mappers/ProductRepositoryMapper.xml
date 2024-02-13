@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dangdang.web.repository.ProductRepository">
+
+  <select id="findViewAll" resultType="ProductView">
+   select * from product_view
+   <where>
+       <if test= "query != null">and name like '%${query}%'</if>
+   </where>
+  </select>
+  <select id="findById" resultType="Product">
+    SELECT * FROM product WHERE id = #{id}
+  </select>  
+  
+  <select id="searchWithLikeStatus" parameterType="map" resultType="ProductView">
+    SELECT
+        p.*,
+        CASE WHEN l.member_id IS NOT NULL THEN TRUE ELSE FALSE END AS is_like
+    FROM
+        product_view p
+    LEFT JOIN
+        `like` l ON p.id = l.product_id AND l.member_id = #{userId} <!-- 여기서 #{userId}가 제대로 매핑되어야 합니다. -->
+    WHERE
+        p.name LIKE CONCAT('%', #{query}, '%')
+</select>
+
+
+  
+
+  </mapper>

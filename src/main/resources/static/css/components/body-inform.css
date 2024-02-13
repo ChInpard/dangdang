@@ -1,0 +1,164 @@
+.body-inform_box
+    .title{
+        display: flex;
+        align-items: center;
+        width: 335px;
+        height: 132px;
+        font-weight: bold;
+        font-size: var(--font-size-7);
+        color: var(--color-text-1)
+    }
+
+.body-inform_box
+    .gender-box{
+        width: 312px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+.body-inform_box
+    .label{
+        color: var(--color-text-3);
+        font-size: Var(--font-size-3);
+        margin-bottom: 10px;
+    }
+
+.body-inform_box
+    .gender-box
+        .checkbox-wrap{
+            display: flex;
+            height: 25px;
+        }
+
+.body-inform_box
+    .gender-box
+        .checkbox-wrap
+            label{
+                display: inline-flex;
+                align-items: center;
+            }
+
+.body-inform_box
+    .gender-box
+        .checkbox-wrap
+            label::before{
+                padding-right: 5px;
+                content: "";
+                width: 16px;
+                height: 16px;
+                background-image: url('/image/icon/radio_off.svg');
+                background-repeat: no-repeat;
+            }
+
+.body-inform_box
+    .gender-box
+        .checkbox-wrap
+            label:has(:checked)::before{
+                background-image: url('/image/icon/radio_on.svg');
+            }
+
+.body-inform_box
+    .gender-box
+        .checkbox-wrap
+            label:last-child{
+                margin-left: 110px;
+            }
+
+.body-inform_box
+    .gender-box
+        .checkbox-wrap
+            .text{
+                font-size: Var(--font-size-2);
+                color: var(--color-text-3);
+            }
+
+.body-box{
+        width: 312px;
+    }
+    
+.body-box
+    .body-data{
+        height: 90px;
+    }
+
+.body-box
+    .birthday-box
+        option{
+            font-size: 20px;
+        }
+
+.body-box
+    .birthday-box
+        .year{
+            width: 95px;
+            height: 48px;
+            padding: 5px 0 5px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--color-text-5);
+            color: #383838;
+            background-color: transparent;
+        }
+
+.body-box
+    .birthday-box
+        .month, .date{
+            width: 75px;
+            height: 48px;
+            padding: 5px 0 5px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--color-text-5);
+            color: #383838;
+            background-color: transparent;
+            margin-left: 29px;
+        }
+
+.body-box
+    .body-data
+        input{
+            height: 48px;
+            width: 310px;
+            border: 1px solid;
+            border-color: var(--color-text-5);
+            text-align: center;
+        }
+
+.body-box
+    .body-data
+        input:focus{
+            border-color: var(--color-main-2);
+        }
+
+.body-box
+    .body-data
+        .text{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+.body-box
+    .body-data
+        .text
+            .unit{
+                top: 45px;
+                right: 12px;
+                color: var(--color-text-3)
+            }
+
+.body-box
+    .body-data
+        .error{
+            border-color: var(--color-accent-12);
+        }
+
+.body-inform_box
+    .body-box
+        .body-data
+            .errorText{
+                justify-content: flex-end;
+                color: var(--color-accent-12);
+                font-size: var(--font-size-2);
+                margin-top: 5px;
+                margin-right: 8px;
+                display: none;
+            }

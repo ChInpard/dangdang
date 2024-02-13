@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" 
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}"
+   >
+<head>
+    <link href="/css/components/product-detail.css" rel="stylesheet" type="text/css">
+    <script src="/css/js/product-detail.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" defer></script>
+</head>
+<body>
+	<main layout:fragment="main">
+    <section class="detail-list">
+        <section class="product-info">
+            <h1 id="${product.name}" th:text="${product.name}"></h1>
+           <!-- <img src="/image/icon/product/detail/food.jpg">-->
+        </section>
+        <section class="nutri-info">
+            <h1>영양 정보</h1>
+            <a class="icon icon-size-2 icon-heart" href="">관심상품</a>
+            <a class="btn btn-nutri_total" href="">1회분(355ml)</a>
+            <a class="btn btn-nutri_100ml" href="">100ml당</a>
+            <a class="btn btn-meal_plus plus" href="">내 식단에 추가
+                <img src="/image/icon/product/detail/plus.svg"></img>       
+            </a>
+            <p>! 본 영양성분은 식약처에 기재되어 있는 성분표를<br>
+                기준으로 표기되어 있습니다.
+            </p>
+	            <section class="nutri-chart">
+	            	<ul class="d:flex md:d:flex">
+	                <li class="position:relative">
+	                    <canvas id="myChart"></canvas>
+	                    <div class="mt:2">
+	                        <span class="font-weight:bold">탄수화물</span>
+	                    </div>
+	                    <div class="nutri-detail position:relative">
+	                        <span class="carb font-size:0 font-weight:bold" th:attr="data-carb=${product.carb}" th:text=${product.carb}></span><br>
+	                        <span class="font-size:-1 font-weight:bold color:text-6">kcal</span>
+	                    </div>
+	                    
+	                </li>
+	                <li class="position:relative">
+	                    <canvas id="myChart2"></canvas>
+	                    <div class="mt:2">
+	                        <div class="font-weight:bold">단백질</div>
+	                        <div class="nutri-detail position:relative">
+	                            <span class="pro font-size:0 font-weight:bold" th:attr="data-pro=${product.pro}" th:text=${product.pro}></span><br>
+	                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+	                        </div>  
+	                    </div>    
+	                </li>
+	                <li class="position:relative">
+	                    <canvas id="myChart3"></canvas>
+	                    <div class="mt:2">
+	                        <div class="font-weight:bold">당</div>
+	                        <div class="nutri-detail position:relative">
+	                            <span class="sugar font-size:0 font-weight:bold" th:attr="data-sugar=${product.sugar}" th:text=${product.sugar}></span><br>
+	                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+	                        </div>
+	                    </div>
+	                </li>
+	                <li class="md:d:none position:relative">
+	                    <canvas id="myChart4"></canvas>
+	                    <div class="mt:2">
+	                        <div class="font-weight:bold">기타</div>
+	                        <div class="nutri-detail position:relative">
+	                            <span class="total font-size:0 font-weight:bold" th:attr="data-total=${product.fat+product.na+product.chol}" th:text=${product.fat+product.na+product.chol}></span><br>
+	                            <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+	                        </div>
+	                    </div>
+	                </li>
+	
+	                    <li class="d:none md:d:inline-block position:relative">
+	                        <canvas id="myChart5"></canvas>
+	                        <div class="mt:2">
+	                            <div class="font-weight:bold">지방</div>
+	                            <div class="nutri-detail position:relative">
+	                                <span class="fat font-size:0 font-weight:bold" th:attr="data-fat=${product.fat}" th:text=${product.fat}>0</span>
+	                                <span class="font-size:-1 font-weight:bold color:text-6">g</span>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="d:none md:d:inline-block position:relative">
+	                        <canvas id="myChart6"></canvas>
+	                        <div class="mt:2">
+	                            <div class="font-weight:bold">나트륨</div>
+	                            <div class="nutri-detail position:relative">
+	                                <span class="na font-size:0 font-weight:bold" th:attr="data-na=${product.na}" th:text=${product.na}>0</span>
+	                                <span class="font-size:-1 font-weight:bold color:text-6">mg</span>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="d:none md:d:inline-block position:relative" >
+	                        <canvas id="myChart7"></canvas>
+	                        <div class="mt:2">
+	                            <div class="font-weight:bold">콜레스테롤</div>
+	                            <div class="nutri-detail position:relative">
+	                                <span class="chol font-size:0 font-weight:bold" th:attr="data-chol=${product.chol}" th:text=${product.chol}>0</span>
+	                                <span class="font-size:-1 font-weight:bold color:text-6">mg</span>
+	                            </div>
+	                        </div>
+	                    </li>
+	            </ul>
+	        </section>
+
+        </section>
+
+        <section class="health-graph">
+            <h1 class="title">건강 그래프</h1>
+            <div class="chart-inf">
+            <canvas id="health-chart"></canvas>
+                    <span class="font-size:1 font-weight:bold">하루 섭취 칼로리</span>
+                    <div>
+                        <span class="kcal font-size:8 font-weight:bold" th:attr="data-kcal=${product.kcal}" th:text=${product.kcal}>0</span>
+                        <span class="font-size:2 font-weight:bold color:text-6"> kcal</span>
+                    </div>
+                </div>
+            <p class="font-weight:bold">
+                <span class="color:accent-12">당곰 회원님</span>의 일일 영양 섭취<br>
+                    그래프입니다.
+            </p>
+            <p class="color:accent-17 font-weight:bold font-size:1">당이 높은 제품입니다. 섭취에 주의해주세요.</p>
+            <p class="font-size:-1 font-weight:2 color:base-11 notice">! 세계보건기구(WHO)에서는 <span class="color:accent-17">하루에<br>
+                당류를 25g 미만</span> 섭취 할 것을 권고합니다.</p>
+            <ul class="graph-inf">    
+                <li>
+                    <a href="">탄수화물 <span th:text=${product.kcal}></span> / 2480 kcal</a>
+                    <canvas class="mt:2" id="bar-chart1"  ></canvas>
+                </li>
+                <li>
+                    <a href="">당류 <span th:text=${product.sugar}></span> / 50 g</a>
+                    <canvas class="mt:2" id="bar-chart2"  ></canvas>
+                </li>
+                <li>
+                    <a href="">나트륨 <span th:text=${product.na}></span> / 1000 mg</a>
+                    <canvas class="mt:2" id="bar-chart3"  ></canvas>
+                </li>
+                <li>
+                    <a href="">지방 <span th:text=${product.fat}></span> / 50 g</a>
+                    <canvas class="mt:2" id="bar-chart4"  ></canvas>
+                </li>
+                <li>
+                    <a href="">단백질 <span th:text=${product.pro}></span> / 100 g</a>
+                    <canvas class="mt:2" id="bar-chart5"  ></canvas>
+                </li>
+            </ul>
+        </section>
+    </section>
+        <script src="/css/js/product-detail.js"></script>
+</body>
+</html>

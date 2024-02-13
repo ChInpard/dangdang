@@ -1,0 +1,314 @@
+.board-btn {
+    display: inline-flex;
+    /*max-width: 1000px;*/
+    padding: 5px 5px;
+    background-color: #3F46D6;
+    border: 2px solid #3F46D6;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: .25s;
+    border-radius:8px;
+    box-sizing: border-box;
+    padding: 5px 12px;
+}
+
+.form-section{
+	min-width: 260px;
+	max-width: 400px;
+}
+
+.form-section
+	.modify{
+		display: flex;
+		justify-content: end;
+		text-align: center;
+		transform: translateY(-805px);
+	}
+
+/* 색이 다른 버튼 */
+.board-btn-disable {
+    background-color: #fff;
+    color: #222;
+}
+
+/* =================이미지 등록 버튼============ */
+.board-btn-image-container {
+    /* 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+}
+.board-btn-image {
+    position: relative;
+    padding: 2px 10px 10px 10px;
+    font-size: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    color: white;
+    background-color: #3F46D6;
+    border: 2px solid #3F46D6;
+    overflow: hidden;
+    transition: .25s;
+
+    margin-top: 28px;
+}
+
+.board-btn-image input[type="file"] {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(5);
+    opacity: 0;
+}
+
+.board-upload {
+    transform: translateY(30%);
+}
+
+/* ================ 글쓰기 등록 버튼=============*/
+.board-btn-write {
+   font-size: 14px;
+   border: none;
+   outline: none;
+   padding: 10px 12px;
+   border-radius: 10px;
+   background-color: #3F46D6;
+   color: #fff;
+   width: 100px;
+   cursor: pointer;
+}
+
+/* ================= ================= */
+
+/* 박스 크기 */
+.btn-size\:1 {
+    width: 60px;
+    height: 40px;
+}
+
+.btn-size\:2 {
+    width: 76px;
+    height: 28px;
+}
+
+.btn-size\:3 {
+    width: 104px;
+    height: 35px;
+}
+
+.btn-size\:4 {
+    width: 105px;
+    height: 51px;
+}
+
+.btn-size\:5 {
+    width: 135px;
+    height: 35px;
+}
+
+.btn-size\:6 {
+    width: 120px;
+    height: 40px;
+}
+
+.btn-size\:7 {
+    width: 312;
+    height: 56px;
+}
+
+/* 호버 */
+.board-btn:focus,
+.board-btn:hover {
+    background-color: #fff;
+    border-color: currentColor;
+    color: #3F46D6;
+}
+.board-btn-disable:hover {
+    background-color: #fff;
+    border-color: currentColor;
+    color: #3F46D6;
+}
+
+/* ----------- 화살표 ----------- */
+.btn-arrow-right {
+    position: relative;
+    padding-right: 2em;
+    padding-left: 1.38rem;
+}
+
+.btn-arrow-right::after {
+    content: '\f061';
+    position: absolute;
+    top: 50%;
+    right: .83em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    transform: translateY(-50%);
+}
+
+/* 아이콘이 있는 버튼 */
+.btn-icon {
+    
+    /* font */
+    font-size: var(--font-size-2);
+    color: var(--color-base-0);
+    line-height: 28px;
+    padding-left: 5px;
+    
+    /* box */
+    background-color: var(--color-main-1);
+    background-image: url(/images/icon/write.svg);
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    width: 70px;
+    height: 28px;
+    border-radius: var(--radius-1);
+    box-sizing: border-box;
+}
+
+.btn-category {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ================셀렉트 박스 ================*/
+/* 기본설정 */
+
+.select-box {
+    -webkit-appearance: none;
+    appearance: none;
+    /* 글자 위치 */
+    padding-left: 5px;
+    width: 70px;
+    height: 30px;
+    color: black;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.select
+    .icon-container {
+        width: 50px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+.search-button {
+    background-image: url('/image/icon/review/postsearch.svg');
+    background-size: cover; 
+    border: none; 
+    width: 30px; 
+    height: 30px;
+    cursor: pointer; 
+    padding: 0;
+    outline: none;
+}
+
+
+
+
+@media (min-width: 700px) {
+    .btn-category {
+
+    }
+}
+
+/* =======================셀렉터===================== */
+/* ----------------------- 기본형-------------------------- */
+.board-select-menu {
+    width: 335px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+}
+
+.board-select-menu
+    .board-select-btn {
+        background-color: #fff;
+        display: flex;
+        height: 20px;
+        padding: 15px;
+        font-size: 14px;
+        font-weight: 150px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+/* 누르면 아이콘이 돌아간다 */
+.board-select-btn span {
+    transition: 0.3s;
+}
+
+.board-select-menu.active .board-select-btn i {
+    transform: rotate(-180deg);
+}
+
+.board-select-menu
+    .board-options {
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 10px;
+
+        /* 자바스크립트 상태변화를 적용하기 위해 숨긴다.*/
+        display: none;
+    }
+
+        /* 자바스크립트로 상태가 'active'가 되면 나타난다*/
+.board-select-menu.active
+    .board-options {
+        display: block;
+    }
+
+.board-options 
+    .board-option{
+        background-color: white;
+        height: 55px;
+        border-radius: 10px;
+        
+        display: flex;
+        padding: 0 16px;
+        align-items: center;
+
+        cursor: pointer;
+    }
+
+.board-options
+    .board-option:hover {
+        background: #d6d8df;
+    } 
+
+.board-option span {
+    margin-right: 10px;
+}
+
+.board-option
+    .board-option-text {
+        font-size: 14px;
+        display: flex;
+    }
+
+@media (min-width: 700px) {
+    .board-select-menu {
+        width: 630px;
+    }
+
+    .form-section{
+		max-width: none;
+	}
+	
+	.board-select-menu
+    	.board-select-btn {
+			width: 600px;
+			}
+}

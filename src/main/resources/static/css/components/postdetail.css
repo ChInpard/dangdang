@@ -1,0 +1,209 @@
+/* General Styles */
+.body {
+    margin: 0;
+}
+
+/* Post Detail Container */
+.post-detail {
+    margin: 0 auto;
+    width: 393px;
+}
+
+/* Detail Header Styles */
+.detail-header, .detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.text {
+    font-weight: bold;
+    font-size: var(--font-size-4);
+}
+
+/* Post Styles */
+.post {
+    padding: 20px;
+}
+
+/* Post Header Styles */
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-author-time {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-author {
+    font-weight: bold;
+    font-size: var(--font-size-4);
+}
+
+.post-time, .post-views, .view-count {
+    font-size: var(--font-size-2);
+    color: var(--color-text-3);
+}
+
+.post-views {
+    margin-left: auto;
+}
+
+.post-title {
+    margin-top: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: var(--font-size-4);
+}
+
+/* Detail Content Styles */
+.detail-content {
+    display: block;
+}
+
+/* Like and Report Block */
+.like-report-block {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.like-button, .report-button {
+    margin-top: 30px;
+    width: 106px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-accent-3);
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+/* Post Reply Header */
+.post-reply-header {
+    border-bottom: solid var(--color-base-9) 1px;
+}
+
+.post-comments {
+    font-weight: bold;
+    font-size: var(--font-size-5);
+}
+
+.comments-count {
+    color: rgba(var(--color-base-11-rgb), 0.5);
+    font-size: var(--font-size-4);
+}
+
+/* Post Reply Content */
+.post-reply-content {
+    margin-top: 20px;
+}
+
+.post-reply {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.reply-main {
+    margin-left: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.reply-author-time {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reply-actions {
+    margin-top: 10px;
+    align-self: flex-end;
+    font-size: var(--font-size-2);
+    color: var(--color-text-3);
+}
+
+.reply-author {
+    font-size: var(--font-size-4);
+    font-weight: bold;
+}
+
+.reply-time {
+    font-size: var(--font-size-2);
+    color: var(--color-text-3);
+}
+
+.reply-text {
+    margin-bottom: 10px;
+}
+
+.post-reply-nav-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.like-icon {
+    vertical-align: middle;
+    margin-top: -8px;
+}
+
+.reply-text {
+    margin-left: 12px;
+}
+
+/* Comment Card */
+.comment-card {
+    border: solid var(--color-base-9) 1px;
+    padding: var(--gap-5);
+    position: relative;
+    color: var(--color-base-0);
+    border-radius: var(--radius-3);
+    background-color: var(--color-base-0);
+    margin-top: 40px;
+}
+
+.comment-card textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border: none;
+    background-color: var(--color-base-0);
+}
+
+.comment-card textarea::placeholder {
+    color: var(--color-base-10);
+    font-size: var(--font-size-2);
+}
+
+.comment-reg {
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}
+
+.cancel-icon, .reg-icon {
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+
+.pic-upload label {
+    cursor: pointer;
+  }

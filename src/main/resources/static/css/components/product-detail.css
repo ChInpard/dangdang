@@ -1,0 +1,456 @@
+.detail-list{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.detail-list 
+    h1{
+    font-size: var(--font-size-6);
+    font-weight: bold;
+    color: var(--color-text-1);
+}
+
+.bar {
+    height: 30px;
+    background-color: blue;
+  }
+  
+
+/* ========================product-info================================ */
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+    width: 328px;
+    height: 60px;
+    align-items: center;
+    padding: 20px 32px 0 32px;
+    margin: auto;
+
+}
+
+.product-info
+    h1{
+       margin-bottom: 20px; 
+       word-break:keep-all;
+       color:var(--color-accent-17);
+    }
+
+.product-info
+    .detail{
+		display: flex;
+		flex-direction: column;
+        width: 100%;
+       	justify-content: flex-end;
+       
+    }
+
+/* ======================== nutri-info ================================ */
+
+.nutri-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 103px;
+    height: 278px;
+    padding: 0 15px 0 15px;
+    margin-top: 50px;
+}
+
+.nutri-info 
+    h1{
+    margin-top: 20px;
+
+    font-size: var(--font-size-4);
+    font-weight: bold;
+}
+
+.nutri-info 
+    .icon-heart{
+    grid-column: 4;
+    grid-row: 1;
+    margin-top: 20px;
+    margin-left: 50px;
+    
+}
+
+.nutri-info a{
+    grid-row: 2;
+}
+
+.nutri-info 
+    .btn-nutri_total{
+    color: var(--color-text-7);
+   
+}
+
+.nutri-info 
+    .btn-nutri_100ml{
+        color: var(--color-accent-1);
+        margin-left: 6px;
+    }
+
+.nutri-info
+    .btn-meal_plus{
+        color: var(--color-base-0);
+        margin-left: 33px;
+    }
+ 
+ 
+/*버튼 클릭시 활성화되는 색상 */
+.nutri-btn-active{
+	background-color: var(--color-accent-1);
+    color: var(--color-base-0) !important;
+   }
+   
+/*버튼 클릭시 비활성화되는 버튼 색상 */
+.nutri-btn-inactive{
+	background-color: var(--color-base-0);
+    color:  var(--color-accent-1) !important;
+    border-radius: var(--radius-2);
+    box-shadow: 0 0 0 1px var(--color-accent-1) inset;
+   }
+
+.nutri-info 
+    .plus{
+    grid-column: 3 /span 4;
+    grid-row: 2;
+}
+
+.nutri-info 
+    p{
+   grid-column: 2 /span 4;
+   grid-row: 3;
+   text-align: center;
+   font-size: var(--font-size-2);
+   color: var(--color-text-3);
+   font-weight: 600;
+}
+
+
+/* ======================== nutri-chart ================================ */
+
+.nutri-info
+    .nutri-chart{
+        
+        grid-column: 1 /span 4;
+        grid-row: 4;
+        text-align: center;
+    }
+
+.nutri-info
+    .nutri-chart
+        ul{
+            display: grid;
+            justify-content: space-between;
+       }
+
+       
+       .nutri-chart
+       	.nutri-detail{
+		display: flex;
+		flex-direction: column;
+        text-align: center;
+        position: relative;
+        bottom: 81px;
+        width: inherit;
+    }
+
+#myChart {
+    width: 74px !important;
+    height: 74px !important;
+}
+
+#myChart2 {
+    width: 74px !important;
+    height: 74px !important;
+}
+
+#myChart3 {
+    width: 74px !important;
+    height: 74px !important;
+}
+
+#myChart4 {
+    width: 74px !important;
+    height: 74px !important;
+}
+
+#myChart5 {
+    width: 74px !important;
+    height: 74px !important;
+}
+
+#myChart6 {
+    width: 74px !important;
+    height: 74px !important;
+}
+#myChart7 {
+
+    width: 74px !important;
+    height: 74px !important;
+}
+/* ======================== ingre-info ================================ */
+
+.ingre-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 362px;
+    height: 364px;
+    padding: 40px 0px 0 0px;
+    margin: auto;
+}
+
+.ingre-info 
+    .title{
+        margin-left: 20px;
+    }
+
+.ingre-info 
+    .more_view{
+        grid-column: 3;
+        grid-row: 1;
+        margin-left: 80px;
+    }
+
+.ingre-info .notice{
+    grid-column: 2 /span 3;
+    grid-row: 2;
+    text-align: center;
+    margin-left: 50px;
+    font-size: var(--font-size-2);
+    color: var(--color-text-3);
+    font-weight: 600;
+}
+
+.ingre-info
+    .info_all{
+        grid-column: 2;
+        grid-row: 3;
+        font-size: var(--font-size-2);
+        text-align: center;
+        line-height: 20px;
+        margin-top: 20px;
+    }
+
+.ingre-info
+    .nutri_view{
+        grid-column: 1 /span 3;
+        grid-row: 4;
+        margin-left: 10px;
+        margin-top: 20px;
+        color: var(--color-accent-1);
+        
+    }
+
+/* ======================== health-graph ================================ */
+
+.health-graph{
+    display: flex;
+    flex-direction: column;
+    width: 329px;
+    /*margin-left: 33px;*/
+    margin: auto;
+}
+
+.health-graph
+    h1{
+        margin-top: 40px;
+        font-weight: bold;
+        font-size: var(--font-size-4);
+    }
+
+.health-graph
+    .chart-inf{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-self: center;
+        width: 232px;
+        height: 210px;
+        margin-left: 55px;
+    }
+
+.chart-inf
+    span{
+        position: relative;
+        bottom: 130px;
+    }
+
+
+#health-chart {
+    width: 222px !important;
+    height: 232px !important;
+    align-self: center;
+    position: relative;
+    background-image:url(/image/icon/product/detail/doughnut-background.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-position-y: 45px;
+}
+
+.health-graph p{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.health-graph
+    .notice{
+        margin-left: 120px;
+        margin-bottom: 40px;
+    }
+
+
+/* ======================== graph-inf ================================ */
+
+.health-graph
+    .graph-inf {
+	margin: auto;	
+    margin-left: 20px;
+	}
+	
+.health-graph
+    .graph-inf li{
+        margin-bottom: 30px;
+    }
+
+
+#bar-chart1{
+        width: 294px !important;
+        height: 30px !important;
+        border-radius: 20px;
+        background-color: #F0F1F9;
+    }
+
+#bar-chart2{
+        width: 294px !important;
+        height: 30px !important;
+        border-radius: 20px;
+        background-color: #F0F1F9;
+    }
+
+#bar-chart3{
+        width: 294px !important;
+        height: 30px !important;
+        border-radius: 20px;
+        background-color: #F0F1F9;
+    }    
+
+#bar-chart4{
+        width: 294px !important;
+        height: 30px !important;
+        border-radius: 20px;
+        background-color: #F0F1F9;
+    }    
+
+#bar-chart5{
+        width: 294px !important;
+        height: 30px !important;
+        border-radius: 20px;
+        background-color: #F0F1F9;
+    }    
+
+@media (min-width: 700px){
+	
+	.product-info
+    	.detail{
+		width: 350px;
+		}
+    
+
+    .detail-list
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+  
+            align-items: center;
+            padding: 20px 32px 0 32px;
+    }
+
+/* ======================== md:nutri-info ================================ */
+
+    .nutri-info{
+        display: grid;
+        grid-template-columns: 98px 98px 98px 98px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nutri-info h1{
+        margin-left: 50px;
+        white-space: nowrap;
+    }
+
+    .nutri-info 
+        .icon-heart{
+    margin-left: 70px;
+        
+    }
+
+    .nutri-info 
+        .btn-nutri_total{
+        margin-left: 50px;
+    }
+
+    .nutri-info 
+        .btn-nutri_100ml{
+            color: var(--color-accent-1);
+            margin-left: 50px;
+        }
+
+    .nutri-info
+        .btn-meal_plus{
+            margin-left: 70px;
+        }
+
+    .nutri-info 
+        p{
+    margin-left: 30px;
+    }
+
+    .nutri-info .nutri-chart {
+    margin-left: 70px;
+   
+    }
+
+    .nutri-info 
+        .nutri-chart ul{
+            width: 290px;
+            flex-wrap: wrap;
+    }
+	.nutri-chart
+	      .nutri-detail{
+	       display: inline-flex;
+	       flex-direction: column;
+	       margin-top: 3px;
+	    }
+/* ======================== md:ingre-info ================================ */
+
+    
+    .ingre-info{
+        display: grid;
+        grid-template-columns: 120px 120px 120px;
+        width: 100%;
+        justify-content: center;
+        padding-top: 180px;
+        padding-left: 30px;
+
+    }
+
+    .ingre-info 
+        .title{
+            margin-left: 25px;
+        }
+
+/* ======================== md:health-graph ================================ */
+    .health-graph{
+    margin: auto;
+    padding-left: 30px;
+    padding-top: 140px;
+    }
+}
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   				layout:decorate="~{inc/layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일 인증</title>
+    <link href="/css/components/findPwd.css" rel="stylesheet" type="text/css">
+    <script type="module" src="/js/findPwd.js" defer></script>
+</head>
+
+<body>
+	<main layout:fragment="main">
+	    <section class="findPwd-box ph:29 d:flex flex:col align-items:center justify-content:center">
+        <h1 class="d:flex title align-items:center font-weight:bold font-size:8 color:text-1">비밀번호 찾기</h1>
+        <div>
+            <img src="/image/findPwd/findPwd.png" alt="비밀번호 찾기 이미지">
+        </div>
+        <p class="text-align:center mt:40 mb:40 font-weight:bold">입력하신 메일로 인증번호를 발송하였습니다 <br> 인증번호를 입력해주세요</p>
+        <form action="" method="post">
+            <fieldset>
+                <legend class="d:none">아이디/비밀번호 찾기 페이지</legend>
+                <div>
+                    <span class="timer"></span>
+                </div>
+                <div class="form-box d:flex">
+                    <div class="input-data">
+                        <input class="input-box text-align:center" id="uemail" type="text" name="auth-num" autocomplete="off" required />
+                        <div class="underline"></div>
+                        <label for="uemail">인증번호</label>
+                        <div class="btn-box d:flex justify-content:center">
+                            <button class="m-btn btn-request mt:18 font-weight:bold" type="submit">재전송</button>
+                        </div>
+                    </div>  
+                </div>
+                <div class="select-box w:166 m:auto d:flex justify-content:space-between pt:115">
+                    <button class="m-btn btn-choice font-weight:bold" type="submit">찾기</button>
+                    <button class="m-btn btn-cancel font-weight:bold" type="submit">취소</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+    </main>
+</body>
+
+</html>

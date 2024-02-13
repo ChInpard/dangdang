@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	>
+<head>
+    
+</head>
+
+<body>
+	<div class="calendar-container d:none">
+		<input type="hidden" value="">
+	    <section class="calendar-section bg-color:base-0 border-radius:3 p:3 box-shadow:4">
+	        <table class="calendar">
+	            <thead>
+	                <tr class="cal-nav">
+	                    <td class="current-month text-align:left font-size:4 font-weight:bold" colspan="5">
+	                        <a class="d:inline-block ml:2" href="">
+	                            <span id="cal-month"></span>
+	                            <span id="cal-year"></span>
+	                        </a>
+	                    </td>
+	                    <td class="btn-prev icon icon-chevron-left cursor-pointer:pointer mt:1 position:relative" onclick="prevCalendar();"></td>
+	                    <td class="btn-next icon icon-chevron-right cursor-pointer:pointer mt:1 ml:2 position:relative" onclick="nextCalendar();"></td>  
+	                </tr>
+	                <tr class="dates font-size:-1 font-weight:bold color:base-9">
+	                    <td class="color:accent-13 text-align:center">SUN</td>
+	                    <td class="text-align:center">MON</td>
+	                    <td class="text-align:center">TUE</td>
+	                    <td class="text-align:center">WED</td>
+	                    <td class="text-align:center">THU</td>
+	                    <td class="text-align:center">FRI</td>
+	                    <td class="color:accent-2 text-align:center">SAT</td>
+	                </tr>
+	            </thead>
+	            <tbody>
+					
+	            </tbody>
+	        </table>
+	        <div class="font-size:3 color:text-1 font-weight:bold text-align:center mt:52">날짜를 선택해주세요.</div>
+	        
+		    <div class="button d:flex align-self:center mt:90">
+		        <button type="submit" class="btn btn-main p:0">확인</button>
+		    </div>
+			
+	    </section>
+	</div>
+</body>
+
+</html>

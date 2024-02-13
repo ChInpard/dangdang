@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.dangdang.web.repository.EatingRepository">
+  
+  <select id="findBySelectedDate" resultType="EatingView">
+    SELECT
+		id,
+		reg_date,
+		member_id,
+		product_id,
+		product_name,
+		product_unit,
+		product_kcal,
+	    SUM(product_kcal) AS sum_kcal,
+	    SUM(product_pro) AS sum_pro,
+	    SUM(product_fat) AS sum_fat,
+	    SUM(product_carb) AS sum_carb,
+	    SUM(product_sugar) AS sum_sugar,
+	    SUM(product_na) AS sum_na,
+	    SUM(product_chol) AS sum_chol,
+	    meal_category_id,
+        SUM(product_fat)+(SUM(product_na)/1000)+(SUM(product_chol)/1000) As etc
+	FROM
+	    (
+	    SELECT
+	        *
+	    FROM
+	        eating_view
+	    WHERE
+	        member_id = #{memberId}
+	        AND DATE_FORMAT(reg_date, '%Y-%m-%d') = #{selectedDate}
+	    ) AS md
+	GROUP BY
+		member_id, DATE_FORMAT(reg_date, '%Y-%m-%d')
+  </select>
+  
+  <select id="findListByMealCategory" resultType="EatingView">
+    SELECT
+		*
+	FROM
+        eating_view
+    WHERE
+        member_id = #{memberId} AND
+        DATE_FORMAT(reg_date, '%Y-%m-%d') = #{eatingDate} AND
+        meal_category_id = #{mealCategoryId}
+  </select>
+  
+  <insert id="save" parameterType="Eating">
+  	insert into 
+		eating(
+			reg_date,
+			member_id,
+		    product_id,
+		    meal_category_id)
+		values(
+			#{selectedDate},
+			#{memberId},
+		    #{productId},
+		    #{mealCategoryId})
+  </insert>
+  
+  <delete id="deleteById">
+  	delete from eating
+  	where id = #{id}
+  </delete>
+  
+  </mapper>
